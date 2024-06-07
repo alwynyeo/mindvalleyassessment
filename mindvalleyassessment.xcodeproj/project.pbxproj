@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683452C13519F00809BDA /* AppDelegate.swift */; };
 		A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683472C13519F00809BDA /* SceneDelegate.swift */; };
-		A4E6834A2C13519F00809BDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683492C13519F00809BDA /* ViewController.swift */; };
-		A4E6834D2C13519F00809BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A4E6834C2C13519F00809BDA /* Base */; };
 		A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4E6834E2C13519F00809BDA /* mindvalleyassessment.xcdatamodeld */; };
 		A4E683522C1351A200809BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E683512C1351A200809BDA /* Assets.xcassets */; };
 		A4E683552C1351A200809BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A4E683542C1351A200809BDA /* Base */; };
 		A4E683602C1351A300809BDA /* mindvalleyassessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6835F2C1351A300809BDA /* mindvalleyassessmentTests.swift */; };
 		A4E6836A2C1351A300809BDA /* mindvalleyassessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */; };
 		A4E6836C2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */; };
+		A4E683852C13564700809BDA /* ChannelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6837F2C13564700809BDA /* ChannelPresenter.swift */; };
+		A4E683862C13564700809BDA /* ChannelWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683802C13564700809BDA /* ChannelWorker.swift */; };
+		A4E683872C13564700809BDA /* ChannelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683812C13564700809BDA /* ChannelRouter.swift */; };
+		A4E683882C13564700809BDA /* ChannelModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683822C13564700809BDA /* ChannelModels.swift */; };
+		A4E683892C13564700809BDA /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683832C13564700809BDA /* ChannelViewController.swift */; };
+		A4E6838A2C13564700809BDA /* ChannelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683842C13564700809BDA /* ChannelInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,6 @@
 		A4E683422C13519F00809BDA /* mindvalleyassessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindvalleyassessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E683452C13519F00809BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E683472C13519F00809BDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A4E683492C13519F00809BDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A4E6834C2C13519F00809BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4E6834F2C13519F00809BDA /* mindvalleyassessment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mindvalleyassessment.xcdatamodel; sourceTree = "<group>"; };
 		A4E683512C1351A200809BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4E683542C1351A200809BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,12 @@
 		A4E683652C1351A300809BDA /* mindvalleyassessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindvalleyassessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentUITests.swift; sourceTree = "<group>"; };
 		A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A4E6837F2C13564700809BDA /* ChannelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPresenter.swift; sourceTree = "<group>"; };
+		A4E683802C13564700809BDA /* ChannelWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelWorker.swift; sourceTree = "<group>"; };
+		A4E683812C13564700809BDA /* ChannelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRouter.swift; sourceTree = "<group>"; };
+		A4E683822C13564700809BDA /* ChannelModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModels.swift; sourceTree = "<group>"; };
+		A4E683832C13564700809BDA /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		A4E683842C13564700809BDA /* ChannelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +109,13 @@
 		A4E683442C13519F00809BDA /* mindvalleyassessment */ = {
 			isa = PBXGroup;
 			children = (
+				A4E6837D2C13559D00809BDA /* Models */,
+				A4E6837C2C13559700809BDA /* Workers */,
+				A4E6837B2C13559000809BDA /* Scenes */,
+				A4E683792C13557D00809BDA /* Shared */,
+				A4E683782C13557600809BDA /* Resources */,
 				A4E683452C13519F00809BDA /* AppDelegate.swift */,
 				A4E683472C13519F00809BDA /* SceneDelegate.swift */,
-				A4E683492C13519F00809BDA /* ViewController.swift */,
-				A4E6834B2C13519F00809BDA /* Main.storyboard */,
 				A4E683512C1351A200809BDA /* Assets.xcassets */,
 				A4E683532C1351A200809BDA /* LaunchScreen.storyboard */,
 				A4E683562C1351A200809BDA /* Info.plist */,
@@ -128,6 +139,55 @@
 				A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */,
 			);
 			path = mindvalleyassessmentUITests;
+			sourceTree = "<group>";
+		};
+		A4E683782C13557600809BDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4E683792C13557D00809BDA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A4E6837B2C13559000809BDA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A4E6837E2C13562300809BDA /* Channnel */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A4E6837C2C13559700809BDA /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		A4E6837D2C13559D00809BDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4E6837E2C13562300809BDA /* Channnel */ = {
+			isa = PBXGroup;
+			children = (
+				A4E6837F2C13564700809BDA /* ChannelPresenter.swift */,
+				A4E683802C13564700809BDA /* ChannelWorker.swift */,
+				A4E683812C13564700809BDA /* ChannelRouter.swift */,
+				A4E683822C13564700809BDA /* ChannelModels.swift */,
+				A4E683832C13564700809BDA /* ChannelViewController.swift */,
+				A4E683842C13564700809BDA /* ChannelInteractor.swift */,
+			);
+			path = Channnel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +296,6 @@
 			files = (
 				A4E683522C1351A200809BDA /* Assets.xcassets in Resources */,
 				A4E683552C1351A200809BDA /* Base in Resources */,
-				A4E6834D2C13519F00809BDA /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +321,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */,
-				A4E6834A2C13519F00809BDA /* ViewController.swift in Sources */,
 				A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */,
+				A4E683852C13564700809BDA /* ChannelPresenter.swift in Sources */,
+				A4E683862C13564700809BDA /* ChannelWorker.swift in Sources */,
+				A4E683872C13564700809BDA /* ChannelRouter.swift in Sources */,
+				A4E683882C13564700809BDA /* ChannelModels.swift in Sources */,
+				A4E683892C13564700809BDA /* ChannelViewController.swift in Sources */,
+				A4E6838A2C13564700809BDA /* ChannelInteractor.swift in Sources */,
 				A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,14 +365,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4E6834B2C13519F00809BDA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4E6834C2C13519F00809BDA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4E683532C1351A200809BDA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -451,7 +507,6 @@
 				INFOPLIST_FILE = mindvalleyassessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,7 +534,6 @@
 				INFOPLIST_FILE = mindvalleyassessment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
