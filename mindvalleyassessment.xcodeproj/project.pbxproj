@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1852C1616FC00CDEDF3 /* ListChannelPresenter.swift */; };
+		A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1862C1616FC00CDEDF3 /* ListChannelWorker.swift */; };
+		A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1872C1616FC00CDEDF3 /* ListChannelRouter.swift */; };
+		A409A18E2C1616FC00CDEDF3 /* ListChannelModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1882C1616FC00CDEDF3 /* ListChannelModels.swift */; };
+		A409A18F2C1616FC00CDEDF3 /* ListChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1892C1616FC00CDEDF3 /* ListChannelViewController.swift */; };
+		A409A1902C1616FC00CDEDF3 /* ListChannelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */; };
+		A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */; };
+		A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */; };
+		A49C73A22C17433200D4DB6A /* NetworkError+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */; };
+		A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A62C17481900D4DB6A /* Color+Constant.swift */; };
+		A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */; };
+		A49C73B02C1755CF00D4DB6A /* GlobalTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AF2C1755CF00D4DB6A /* GlobalTypealiases.swift */; };
+		A49C73B22C17567E00D4DB6A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73B12C17567E00D4DB6A /* NetworkService.swift */; };
 		A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683452C13519F00809BDA /* AppDelegate.swift */; };
 		A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683472C13519F00809BDA /* SceneDelegate.swift */; };
 		A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4E6834E2C13519F00809BDA /* mindvalleyassessment.xcdatamodeld */; };
@@ -15,12 +28,13 @@
 		A4E683602C1351A300809BDA /* mindvalleyassessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6835F2C1351A300809BDA /* mindvalleyassessmentTests.swift */; };
 		A4E6836A2C1351A300809BDA /* mindvalleyassessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */; };
 		A4E6836C2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */; };
-		A4E683852C13564700809BDA /* ChannelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6837F2C13564700809BDA /* ChannelPresenter.swift */; };
-		A4E683862C13564700809BDA /* ChannelWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683802C13564700809BDA /* ChannelWorker.swift */; };
-		A4E683872C13564700809BDA /* ChannelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683812C13564700809BDA /* ChannelRouter.swift */; };
-		A4E683882C13564700809BDA /* ChannelModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683822C13564700809BDA /* ChannelModels.swift */; };
-		A4E683892C13564700809BDA /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683832C13564700809BDA /* ChannelViewController.swift */; };
-		A4E6838A2C13564700809BDA /* ChannelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683842C13564700809BDA /* ChannelInteractor.swift */; };
+		A4E683902C13611F00809BDA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6838F2C13611F00809BDA /* UIColor+Extension.swift */; };
+		A4E683922C137A8300809BDA /* NewEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683912C137A8300809BDA /* NewEpisode.swift */; };
+		A4E683942C137AAA00809BDA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683932C137AAA00809BDA /* Channel.swift */; };
+		A4E683962C137AB100809BDA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683952C137AB100809BDA /* Category.swift */; };
+		A4E683A92C1395C700809BDA /* ListChannelDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683A82C1395C700809BDA /* ListChannelDefaultCell.swift */; };
+		A4FD68DE2C14602300571D8F /* ListChannelTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD68DD2C14602200571D8F /* ListChannelTextHeaderView.swift */; };
+		A4FD68E02C14641500571D8F /* ListChannelIconTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD68DF2C14641500571D8F /* ListChannelIconTextHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +55,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A409A1852C1616FC00CDEDF3 /* ListChannelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelPresenter.swift; sourceTree = "<group>"; };
+		A409A1862C1616FC00CDEDF3 /* ListChannelWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelWorker.swift; sourceTree = "<group>"; };
+		A409A1872C1616FC00CDEDF3 /* ListChannelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelRouter.swift; sourceTree = "<group>"; };
+		A409A1882C1616FC00CDEDF3 /* ListChannelModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelModels.swift; sourceTree = "<group>"; };
+		A409A1892C1616FC00CDEDF3 /* ListChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelViewController.swift; sourceTree = "<group>"; };
+		A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelInteractor.swift; sourceTree = "<group>"; };
+		A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelSeriesCell.swift; sourceTree = "<group>"; };
+		A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelCategoryCell.swift; sourceTree = "<group>"; };
+		A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkError+Constant.swift"; sourceTree = "<group>"; };
+		A49C73A62C17481900D4DB6A /* Color+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Constant.swift"; sourceTree = "<group>"; };
+		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Constant.swift"; sourceTree = "<group>"; };
+		A49C73AF2C1755CF00D4DB6A /* GlobalTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTypealiases.swift; sourceTree = "<group>"; };
+		A49C73B12C17567E00D4DB6A /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A4E683422C13519F00809BDA /* mindvalleyassessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindvalleyassessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E683452C13519F00809BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E683472C13519F00809BDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,12 +80,13 @@
 		A4E683652C1351A300809BDA /* mindvalleyassessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindvalleyassessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentUITests.swift; sourceTree = "<group>"; };
 		A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A4E6837F2C13564700809BDA /* ChannelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPresenter.swift; sourceTree = "<group>"; };
-		A4E683802C13564700809BDA /* ChannelWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelWorker.swift; sourceTree = "<group>"; };
-		A4E683812C13564700809BDA /* ChannelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelRouter.swift; sourceTree = "<group>"; };
-		A4E683822C13564700809BDA /* ChannelModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelModels.swift; sourceTree = "<group>"; };
-		A4E683832C13564700809BDA /* ChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
-		A4E683842C13564700809BDA /* ChannelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelInteractor.swift; sourceTree = "<group>"; };
+		A4E6838F2C13611F00809BDA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A4E683912C137A8300809BDA /* NewEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisode.swift; sourceTree = "<group>"; };
+		A4E683932C137AAA00809BDA /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		A4E683952C137AB100809BDA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A4E683A82C1395C700809BDA /* ListChannelDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelDefaultCell.swift; sourceTree = "<group>"; };
+		A4FD68DD2C14602200571D8F /* ListChannelTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelTextHeaderView.swift; sourceTree = "<group>"; };
+		A4FD68DF2C14641500571D8F /* ListChannelIconTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelIconTextHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +114,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A409A1842C1616E400CDEDF3 /* ListChannel */ = {
+			isa = PBXGroup;
+			children = (
+				A4E683A62C13959600809BDA /* UI */,
+				A409A1852C1616FC00CDEDF3 /* ListChannelPresenter.swift */,
+				A409A1862C1616FC00CDEDF3 /* ListChannelWorker.swift */,
+				A409A1872C1616FC00CDEDF3 /* ListChannelRouter.swift */,
+				A409A1882C1616FC00CDEDF3 /* ListChannelModels.swift */,
+				A409A1892C1616FC00CDEDF3 /* ListChannelViewController.swift */,
+				A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */,
+			);
+			path = ListChannel;
+			sourceTree = "<group>";
+		};
+		A49C73992C16FB3900D4DB6A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A49C739B2C16FB5600D4DB6A /* PersistenceStorage */,
+				A49C739A2C16FB4E00D4DB6A /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A49C739A2C16FB4E00D4DB6A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A49C73B12C17567E00D4DB6A /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A49C739B2C16FB5600D4DB6A /* PersistenceStorage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PersistenceStorage;
+			sourceTree = "<group>";
+		};
+		A49C73A02C1742D700D4DB6A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A49C73AD2C174C4100D4DB6A /* Network */,
+				A49C73A82C17482900D4DB6A /* UI */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A49C73A82C17482900D4DB6A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A49C73A62C17481900D4DB6A /* Color+Constant.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A49C73A92C17485400D4DB6A /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A4E6838F2C13611F00809BDA /* UIColor+Extension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A49C73AD2C174C4100D4DB6A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */,
+				A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A49C73AE2C1755A700D4DB6A /* Typealiases */ = {
+			isa = PBXGroup;
+			children = (
+				A49C73AF2C1755CF00D4DB6A /* GlobalTypealiases.swift */,
+			);
+			path = Typealiases;
+			sourceTree = "<group>";
+		};
 		A4E683392C13519F00809BDA = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +217,8 @@
 		A4E683442C13519F00809BDA /* mindvalleyassessment */ = {
 			isa = PBXGroup;
 			children = (
+				A49C73992C16FB3900D4DB6A /* Services */,
 				A4E6837D2C13559D00809BDA /* Models */,
-				A4E6837C2C13559700809BDA /* Workers */,
 				A4E6837B2C13559000809BDA /* Scenes */,
 				A4E683792C13557D00809BDA /* Shared */,
 				A4E683782C13557600809BDA /* Resources */,
@@ -151,6 +259,9 @@
 		A4E683792C13557D00809BDA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A49C73AE2C1755A700D4DB6A /* Typealiases */,
+				A49C73A02C1742D700D4DB6A /* Constants */,
+				A4E6838E2C13611900809BDA /* Extensions */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -158,36 +269,55 @@
 		A4E6837B2C13559000809BDA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A4E6837E2C13562300809BDA /* Channnel */,
+				A409A1842C1616E400CDEDF3 /* ListChannel */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		A4E6837C2C13559700809BDA /* Workers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Workers;
 			sourceTree = "<group>";
 		};
 		A4E6837D2C13559D00809BDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A4E683912C137A8300809BDA /* NewEpisode.swift */,
+				A4E683932C137AAA00809BDA /* Channel.swift */,
+				A4E683952C137AB100809BDA /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A4E6837E2C13562300809BDA /* Channnel */ = {
+		A4E6838E2C13611900809BDA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A4E6837F2C13564700809BDA /* ChannelPresenter.swift */,
-				A4E683802C13564700809BDA /* ChannelWorker.swift */,
-				A4E683812C13564700809BDA /* ChannelRouter.swift */,
-				A4E683822C13564700809BDA /* ChannelModels.swift */,
-				A4E683832C13564700809BDA /* ChannelViewController.swift */,
-				A4E683842C13564700809BDA /* ChannelInteractor.swift */,
+				A49C73A92C17485400D4DB6A /* UIKit */,
 			);
-			path = Channnel;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A4E683A62C13959600809BDA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A4FD68DC2C145FCA00571D8F /* HeaderView */,
+				A4E683A72C1395A000809BDA /* Cell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A4E683A72C1395A000809BDA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A4E683A82C1395C700809BDA /* ListChannelDefaultCell.swift */,
+				A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */,
+				A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A4FD68DC2C145FCA00571D8F /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				A4FD68DD2C14602200571D8F /* ListChannelTextHeaderView.swift */,
+				A4FD68DF2C14641500571D8F /* ListChannelIconTextHeaderView.swift */,
+			);
+			path = HeaderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,15 +450,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A49C73B02C1755CF00D4DB6A /* GlobalTypealiases.swift in Sources */,
 				A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */,
+				A4FD68E02C14641500571D8F /* ListChannelIconTextHeaderView.swift in Sources */,
+				A4E683A92C1395C700809BDA /* ListChannelDefaultCell.swift in Sources */,
+				A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */,
+				A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */,
+				A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */,
+				A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */,
+				A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */,
+				A409A18E2C1616FC00CDEDF3 /* ListChannelModels.swift in Sources */,
+				A409A18F2C1616FC00CDEDF3 /* ListChannelViewController.swift in Sources */,
+				A49C73B22C17567E00D4DB6A /* NetworkService.swift in Sources */,
+				A409A1902C1616FC00CDEDF3 /* ListChannelInteractor.swift in Sources */,
+				A4E683922C137A8300809BDA /* NewEpisode.swift in Sources */,
+				A4E683942C137AAA00809BDA /* Channel.swift in Sources */,
 				A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */,
-				A4E683852C13564700809BDA /* ChannelPresenter.swift in Sources */,
-				A4E683862C13564700809BDA /* ChannelWorker.swift in Sources */,
-				A4E683872C13564700809BDA /* ChannelRouter.swift in Sources */,
-				A4E683882C13564700809BDA /* ChannelModels.swift in Sources */,
-				A4E683892C13564700809BDA /* ChannelViewController.swift in Sources */,
-				A4E6838A2C13564700809BDA /* ChannelInteractor.swift in Sources */,
+				A4FD68DE2C14602300571D8F /* ListChannelTextHeaderView.swift in Sources */,
+				A4E683902C13611F00809BDA /* UIColor+Extension.swift in Sources */,
 				A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */,
+				A49C73A22C17433200D4DB6A /* NetworkError+Constant.swift in Sources */,
+				A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */,
+				A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift in Sources */,
+				A4E683962C137AB100809BDA /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +653,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,6 +681,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -41,8 +41,8 @@ final class ListChannelWorker {
         
         service.getNewEpisodes(from: url) { result in
             switch result {
-                case .success(let newEpisodes):
-                    let result = NewEpisodeResultType.success(newEpisodes)
+                case .success(let data):
+                    let result = NewEpisodeResultType.success(data)
                     completion(result)
                 case .failure(let error):
                     let result = NewEpisodeResultType.failure(error)
