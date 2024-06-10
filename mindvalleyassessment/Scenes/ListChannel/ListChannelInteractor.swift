@@ -28,7 +28,7 @@ final class ListChannelInteractor {
     // MARK: - Object Lifecycle
 
     init() {
-        let service = ChannelNetworkService()
+        let service = NetworkService.shared
         worker = ListChannelWorker(service: service)
     }
 }
@@ -38,8 +38,9 @@ extension ListChannelInteractor: ListChannelBusinessLogic {
     func doSomething(request: ListChannel.Something.Request) {
         worker?.getEpisodes { result in
             switch result {
-                case .success(let success):
-                    print("New Episodes", success)
+                case .success(let data):
+                    let newEpisodes = data.data.media
+                    print("New Episodes", newEpisodes.count)
                 case .failure(let error):
                     print("Error::", error.localizedDescription)
             }
