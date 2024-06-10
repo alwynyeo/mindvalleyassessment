@@ -1,44 +1,44 @@
 //
-//  ChannelRouter.swift
+//  ListChannelRouter.swift
 //  mindvalleyassessment
 //
-//  Created by Alwyn Yeo on 6/7/24.
+//  Created by Alwyn Yeo on 6/10/24.
 //  Copyright (c) 2024 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-// MARK: - ChannelRoutingLogic Protocol
-protocol ChannelRoutingLogic {
+// MARK: - ListChannelRoutingLogic Protocol
+protocol ListChannelRoutingLogic {
     //  func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-// MARK: - ChannelDataPassing Protocol
-protocol ChannelDataPassing {
-    var dataStore: ChannelDataStore? { get }
+// MARK: - ListChannelDataPassing Protocol
+protocol ListChannelDataPassing {
+    var dataStore: ListChannelDataStore? { get }
 }
 
-// MARK: - ChannelRouter Class
-final class ChannelRouter {
+// MARK: - ListChannelRouter Class
+final class ListChannelRouter {
     // MARK: - Declarations
     
-    weak var viewController: ChannelViewController?
+    weak var viewController: ListChannelViewController?
     
-    var dataStore: ChannelDataStore?
+    var dataStore: ListChannelDataStore?
 
     // MARK: - Passing Data
 
-//    private func passDataToSomewhere(source: ChannelDataStore, destination: inout SomewhereDataStore) {
+//    private func passDataToSomewhere(source: ListChannelDataStore, destination: inout SomewhereDataStore) {
 //        destination.name = source.name
 //    }
 
     // MARK: - Navigation
 
-//    private func navigateToSomewhere(source: ChannelViewController, destination: SomewhereViewController) {
+//    private func navigateToSomewhere(source: ListChannelViewController, destination: SomewhereViewController) {
 //        source.show(destination, sender: nil)
 //    }
 }
 
-// MARK: - ChannelRoutingLogic Extension
-extension ChannelRouter: ChannelRoutingLogic {
+// MARK: - ListChannelRoutingLogic Extension
+extension ListChannelRouter: ListChannelRoutingLogic {
 //    func routeToSomewhere(segue: UIStoryboardSegue?) {
 //        if let segue = segue {
 //            let destinationVC = segue.destination as! SomewhereViewController
@@ -54,5 +54,5 @@ extension ChannelRouter: ChannelRoutingLogic {
 //    }
 }
 
-// MARK: - ChannelDataPassing Extension
-extension ChannelRouter: ChannelDataPassing {}
+// MARK: - ListChannelDataPassing Extension
+extension ListChannelRouter: ListChannelDataPassing {}
