@@ -11,7 +11,11 @@ final class ListChannelSeriesCell: UICollectionViewCell {
 
     // MARK: - Declarations
 
-    static let cellId = "ListChannelDefaultCell"
+    private var item: ListChannel.Section.Item? {
+        didSet { configureItem() }
+    }
+
+    static let cellId = "ListChannelSeriesCell"
 
     private let coverImageView = UIImageView()
     private let titleLabel = UILabel()
@@ -28,20 +32,37 @@ final class ListChannelSeriesCell: UICollectionViewCell {
         super.init(coder: coder)
         configureUI()
     }
+
+    // MARK: - Helpers
+
+    func configure(item: ListChannel.Section.Item) {
+        self.item = item
+    }
+
+    private func configureItem() {
+        guard let item = item else { return }
+        let title = item.title
+
+        titleLabel.text = title
+
+        if let imageUrl = item.imageUrl {
+            coverImageView.setImage(with: imageUrl)
+        }
+    }
 }
 
 // MARK: - Programmatic UI Configuration
 private extension ListChannelSeriesCell {
     func configureUI() {
-        coverImageView.backgroundColor = UIColor.black
+        coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
         coverImageView.layer.cornerRadius = 8
         coverImageView.clipsToBounds = true
+        coverImageView.translatesAutoresizingMaskIntoConstraints = false
 
-        titleLabel.text = "The Cure For Loneliness"
         titleLabel.textColor = Color.whiteText
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.numberOfLines = 0
-        titleLabel.setContentHuggingPriority(UILayoutPriority.fittingSizeLevel, for: NSLayoutConstraint.Axis.vertical)
+        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
 
         stackView.axis = NSLayoutConstraint.Axis.vertical
         stackView.spacing = 11
@@ -60,7 +81,7 @@ private extension ListChannelSeriesCell {
             stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -30),
         ])
     }
 }

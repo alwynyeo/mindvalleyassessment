@@ -11,6 +11,10 @@ final class ListChannelCategoryCell: UICollectionViewCell {
     
     // MARK: - Declarations
 
+    private var item: ListChannel.Section.Item? {
+        didSet { configureItem() }
+    }
+
     static let cellId = "ListChannelCategoryCell"
 
     private let titleLabel = UILabel()
@@ -26,6 +30,19 @@ final class ListChannelCategoryCell: UICollectionViewCell {
         super.init(coder: coder)
         configureUI()
     }
+
+    // MARK: - Helpers
+
+    func configure(item: ListChannel.Section.Item) {
+        self.item = item
+    }
+
+    private func configureItem() {
+        guard let item = item else { return }
+        let title = item.title
+
+        titleLabel.text = title
+    }
 }
 
 // MARK: - Programmatic UI Configuration
@@ -34,7 +51,6 @@ private extension ListChannelCategoryCell {
         contentView.backgroundColor = Color.grayBackground
         contentView.layer.cornerRadius = 32
 
-        titleLabel.text = "Love Relationship"
         titleLabel.textColor = Color.whiteText
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         titleLabel.numberOfLines = 2
@@ -45,8 +61,8 @@ private extension ListChannelCategoryCell {
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
         ])
