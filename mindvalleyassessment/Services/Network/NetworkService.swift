@@ -23,11 +23,16 @@ final class NetworkService: ListChannelServiceProtocol {
     // MARK: - Methods
 
     func getNewEpisodes(from url: URL, completion: @escaping (NewEpisodeResultType) -> Void) {
-        let task = urlSession.dataTask(with: url) { [unowned self] data, response, error in
+        let task = urlSession.dataTask(with: url) { [weak self] data, response, error in
             let result: NewEpisodeResultType
 
             defer {
                 completion(result)
+            }
+
+            guard let self else {
+                result = NewEpisodeResultType.failure(NetworkError.unableToComplete)
+                return
             }
 
             guard error == nil else {
@@ -63,11 +68,85 @@ final class NetworkService: ListChannelServiceProtocol {
         task.resume()
     }
 
-    func getChannels() {
-        print(2)
+    func getChannels(from url: URL, completion: @escaping (ChannelResultType) -> Void) {
+        let task = urlSession.dataTask(with: url) { [unowned self] data, response, error in
+            let result: ChannelResultType
+
+            defer {
+                completion(result)
+            }
+
+            guard error == nil else {
+                result = ChannelResultType.failure(NetworkError.unableToComplete)
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse else {
+                result = ChannelResultType.failure(NetworkError.invalidResponse)
+                return
+            }
+
+            let statusCode = response.statusCode
+
+            guard statusCode == NetworkStatusCode.success.rawValue else {
+                result = ChannelResultType.failure(NetworkError.statusCodeNotSuccess)
+                return
+            }
+
+            guard let data = data else {
+                result = ChannelResultType.failure(NetworkError.invalidData)
+                return
+            }
+
+            do {
+                let decodedData = try decoder.decode(Channel.self, from: data)
+                result = ChannelResultType.success(decodedData)
+            } catch {
+                result = ChannelResultType.failure(NetworkError.jsonDecodeFailure)
+            }
+        }
+
+        task.resume()
     }
-    
-    func getCategories() {
-        print(3)
+
+    func getCategories(from url: URL, completion: @escaping (CategoryResultType) -> Void) {
+        let task = urlSession.dataTask(with: url) { [unowned self] data, response, error in
+            let result: CategoryResultType
+
+            defer {
+                completion(result)
+            }
+
+            guard error == nil else {
+                result = CategoryResultType.failure(NetworkError.unableToComplete)
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse else {
+                result = CategoryResultType.failure(NetworkError.invalidResponse)
+                return
+            }
+
+            let statusCode = response.statusCode
+
+            guard statusCode == NetworkStatusCode.success.rawValue else {
+                result = CategoryResultType.failure(NetworkError.statusCodeNotSuccess)
+                return
+            }
+
+            guard let data = data else {
+                result = CategoryResultType.failure(NetworkError.invalidData)
+                return
+            }
+
+            do {
+                let decodedData = try decoder.decode(Category.self, from: data)
+                result = CategoryResultType.success(decodedData)
+            } catch {
+                result = CategoryResultType.failure(NetworkError.jsonDecodeFailure)
+            }
+        }
+
+        task.resume()
     }
 }
