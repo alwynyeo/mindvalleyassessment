@@ -10,25 +10,24 @@ import UIKit
 
 // MARK: - ListChannelDisplayLogic Protocol
 protocol ListChannelDisplayLogic: AnyObject {
-    func displaySomething(viewModel: ListChannel.Something.ViewModel)
+    func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel)
 }
 
 // MARK: - ListChannelViewController Class
 final class ListChannelViewController: UICollectionViewController {
     // MARK: - Declarations
     
+    typealias CompositionalLayout = UICollectionViewCompositionalLayout
+
+    typealias Section = ListChannel.Section
+
+    typealias Item = ListChannel.Section.Item
+
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
+
     private var interactor: ListChannelBusinessLogic?
 
     private var router: (ListChannelRoutingLogic & ListChannelDataPassing)?
-
-    private struct Section: Hashable {
-        let id: String
-    }
-
-    private struct Item: Hashable {
-        let id: String
-        let title: String
-    }
 
     private let listChannelDefaultCellId = ListChannelDefaultCell.cellId
 
@@ -66,74 +65,62 @@ final class ListChannelViewController: UICollectionViewController {
     override func loadView() {
         super.loadView()
         configureUI()
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+        dataSource.supplementaryViewProvider = { [unowned self] (collectionView, kind, indexPath) in
             let defaultHeaderView = UICollectionReusableView()
 
-//            guard let listChannelTextHeaderView = collectionView.dequeueReusableSupplementaryView(
-//                ofKind: kind,
-//                withReuseIdentifier: ListChannelTextHeaderView.headerId,
-//                for: indexPath
-//            ) as? ListChannelTextHeaderView else {
-//                return defaultHeaderView
-//            }
-//
-//            return listChannelTextHeaderView
+            let snapshot = self.dataSource.snapshot()
 
-            guard let listChannelIconTextHeaderView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: ListChannelIconTextHeaderView.headerId,
-                for: indexPath
-            ) as? ListChannelIconTextHeaderView else {
-                return defaultHeaderView
+            let sections = snapshot.sectionIdentifiers
+
+            let sectionIndex = indexPath.section
+
+            let section = sections[sectionIndex]
+
+            let lastSectionIndex = sections.count - 1
+
+            let isFirstSection = sectionIndex == 0
+
+            let isLastSection = sectionIndex == lastSectionIndex
+
+            if isFirstSection {
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: ListChannelTextHeaderView.headerId,
+                    for: indexPath
+                ) as? ListChannelTextHeaderView else {
+                    return defaultHeaderView
+                }
+                headerView.configure(section: section, isSeparatorHidden: true)
+                return headerView
+            } else if isLastSection {
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: ListChannelTextHeaderView.headerId,
+                    for: indexPath
+                ) as? ListChannelTextHeaderView else {
+                    return defaultHeaderView
+                }
+                headerView.configure(section: section)
+                return headerView
+            } else {
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: ListChannelIconTextHeaderView.headerId,
+                    for: indexPath
+                ) as? ListChannelIconTextHeaderView else {
+                    return defaultHeaderView
+                }
+                headerView.configure(section: section)
+                return headerView
             }
-
-            return listChannelIconTextHeaderView
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        loadData()
         print("width::", collectionView.frame.width)
         print("height::", collectionView.frame.height)
-        var snapshot = dataSource.snapshot()
-        var sections: [Section] = []
-        var sectionAItems: [Item] = []
-        var sectionBItems: [Item] = []
-        var sectionCItems: [Item] = []
-        var sectionDItems: [Item] = []
-        var sectionEItems: [Item] = []
-        for _ in 0..<5 {
-            let section = Section(id: UUID().uuidString)
-            sections.append(section)
-        }
-        for index in 0..<10 {
-            let item = Item(id: UUID().uuidString, title: "Title\(index+1)")
-            sectionAItems.append(item)
-        }
-        for index in 0..<10 {
-            let item = Item(id: UUID().uuidString, title: "Title\(index+1)")
-            sectionBItems.append(item)
-        }
-        for index in 0..<10 {
-            let item = Item(id: UUID().uuidString, title: "Title\(index+1)")
-            sectionCItems.append(item)
-        }
-        for index in 0..<10 {
-            let item = Item(id: UUID().uuidString, title: "Title\(index+1)")
-            sectionDItems.append(item)
-        }
-        for index in 0..<10 {
-            let item = Item(id: UUID().uuidString, title: "Title\(index+1)")
-            sectionEItems.append(item)
-        }
-        snapshot.appendSections(sections)
-        snapshot.appendItems(sectionAItems, toSection: sections[0])
-        snapshot.appendItems(sectionBItems, toSection: sections[1])
-        snapshot.appendItems(sectionCItems, toSection: sections[2])
-        snapshot.appendItems(sectionDItems, toSection: sections[3])
-        snapshot.appendItems(sectionEItems, toSection: sections[4])
-        dataSource.apply(snapshot, animatingDifferences: true)
     }
 
     // MARK: - Override Parent Methods
@@ -158,26 +145,72 @@ final class ListChannelViewController: UICollectionViewController {
 
     // MARK: - Interator Logic
 
-    private func doSomething() {
-        let request = ListChannel.Something.Request()
-        interactor?.doSomething(request: request)
+    private func loadData() {
+        let request = ListChannel.LoadData.Request()
+        interactor?.loadData(request: request)
     }
 
     // MARK: - Helpers
 
-    private func makeDataSource() -> UICollectionViewDiffableDataSource<Section, AnyHashable> {
-        let dataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: collectionView) { [unowned self] collectionView, indexPath, item in
+    private func makeDataSource() -> DataSource {
+        let dataSource = DataSource(collectionView: collectionView) { [unowned self] collectionView, indexPath, item in
             let defaultCell = UICollectionViewCell()
 
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listChannelDefaultCellId, for: indexPath) as? ListChannelDefaultCell else {
-//                return defaultCell
-//            }
+            let snapshot = self.dataSource.snapshot()
 
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: listChannelCategoryCellId, for: indexPath) as? ListChannelCategoryCell else {
+            guard let section = snapshot.sectionIdentifier(containingItem: item) else {
                 return defaultCell
             }
 
-            return cell
+            let sectionIndex = indexPath.section
+
+            let lastSectionIndex = snapshot.sectionIdentifiers.count - 1
+
+            let isFirstSection = sectionIndex == 0
+
+            let isLastSection = sectionIndex == lastSectionIndex
+
+            let isSectionSeriesType = section.isSeriesType
+
+            if isFirstSection {
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: listChannelDefaultCellId,
+                    for: indexPath
+                ) as? ListChannelDefaultCell else {
+                    return defaultCell
+                }
+                cell.configure(item: item)
+                return cell
+            } else if isLastSection {
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: listChannelCategoryCellId,
+                    for: indexPath
+                ) as? ListChannelCategoryCell else {
+                    return defaultCell
+                }
+                cell.configure(item: item)
+                return cell
+            } else {
+                if isSectionSeriesType {
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: listChannelSeriesCellId,
+                        for: indexPath
+                    ) as? ListChannelSeriesCell else {
+                        return defaultCell
+                    }
+                    cell.configure(item: item)
+                    return cell
+                } else {
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: listChannelDefaultCellId,
+                        for: indexPath
+                    ) as? ListChannelDefaultCell else {
+                        return defaultCell
+                    }
+                    cell.configure(item: item)
+                    return cell
+                }
+            }
         }
 
         return dataSource
@@ -186,7 +219,19 @@ final class ListChannelViewController: UICollectionViewController {
 
 // MARK: - ListChannelDisplayLogic Extension
 extension ListChannelViewController: ListChannelDisplayLogic {
-    func displaySomething(viewModel: ListChannel.Something.ViewModel) {}
+    func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel) {
+        let sections = viewModel.sections
+        var snapshot = dataSource.snapshot()
+
+        snapshot.appendSections(sections)
+
+        sections.forEach { section in
+            let items = section.items
+            snapshot.appendItems(items, toSection: section)
+        }
+
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 }
 
 // MARK: - Programmatic UI Configuration
@@ -207,14 +252,18 @@ private extension ListChannelViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         collectionView.collectionViewLayout = makeCompositionalLayout()
-        //        collectionView.contentInset.bottom = 46
+        collectionView.contentInset.top = 24
         collectionView.backgroundColor = Color.screenBackgroundColor
         collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = true
-//        collectionView.register(ListChannelDefaultCell.self, forCellWithReuseIdentifier: listChannelDefaultCellId)
-//        collectionView.register(ListChannelSeriesCell.self, forCellWithReuseIdentifier: listChannelSeriesCellId)
+        collectionView.register(ListChannelDefaultCell.self, forCellWithReuseIdentifier: listChannelDefaultCellId)
+        collectionView.register(ListChannelSeriesCell.self, forCellWithReuseIdentifier: listChannelSeriesCellId)
         collectionView.register(ListChannelCategoryCell.self, forCellWithReuseIdentifier: listChannelCategoryCellId)
-//        collectionView.register(ListChannelTextHeaderView.self, forSupplementaryViewOfKind: elementKindSectionHeader, withReuseIdentifier: ListChannelTextHeaderView.headerId)
+        collectionView.register(
+            ListChannelTextHeaderView.self,
+            forSupplementaryViewOfKind: elementKindSectionHeader,
+            withReuseIdentifier: ListChannelTextHeaderView.headerId
+        )
         collectionView.register(
             ListChannelIconTextHeaderView.self,
             forSupplementaryViewOfKind: elementKindSectionHeader,
@@ -222,52 +271,65 @@ private extension ListChannelViewController {
         )
     }
 
-    func makeCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        //        let layout = UICollectionViewCompositionalLayout(
-        //        UICollectionViewCompositionalLayoutConfiguration().
-        print("UICollectionViewCompositionalLayout")
-        let layout = UICollectionViewCompositionalLayout { [unowned self] sectionIndex, environment in
-            if sectionIndex == 0 {
-                let newEpisodeSection = makeNewEpisodeLayoutSection()
-                return newEpisodeSection
-            } else if sectionIndex == 2 {
-                let seriesSection = makeSeriesLayoutSection()
-                return seriesSection
-            } else if sectionIndex == 4 {
-                let categorySection = makeCategoryLayoutSection()
-                return categorySection
+    func makeCompositionalLayout() -> CompositionalLayout {
+        let configuration = UICollectionViewCompositionalLayoutConfiguration()
+
+        configuration.scrollDirection = UICollectionView.ScrollDirection.vertical
+
+        let layout = CompositionalLayout(sectionProvider: { [unowned self] sectionIndex, environment in
+            let snapshot = dataSource.snapshot()
+            let sections = snapshot.sectionIdentifiers
+            let section = sections[sectionIndex]
+            let lastSectionIndex = sections.count - 1
+
+            let isFirstSection = sectionIndex == 0
+            let isLastSection = sectionIndex == lastSectionIndex
+            let isSectionSeriesType = section.isSeriesType
+
+            let layoutSection: NSCollectionLayoutSection
+
+            if isFirstSection {
+                layoutSection = makeNewEpisodeLayoutSection()
+            } else if isLastSection {
+                layoutSection = makeCategoryLayoutSection()
             } else {
-                let courseSection = makeCourseLayoutSection()
-                return courseSection
+                layoutSection = isSectionSeriesType ? makeSeriesLayoutSection() : makeCourseLayoutSection()
             }
-        }
+
+            return layoutSection
+
+        }, configuration: configuration)
 
         return layout
     }
 
     func makeNewEpisodeLayoutSection() -> NSCollectionLayoutSection {
         let itemWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let itemHeight = NSCollectionLayoutDimension.fractionalHeight(1.0)
+        let itemHeight: NSCollectionLayoutDimension
+        if #available(iOS 17.0, *) {
+            itemHeight = NSCollectionLayoutDimension.uniformAcrossSiblings(estimate: 354.0)
+        } else {
+            itemHeight = NSCollectionLayoutDimension.estimated(354.0)
+        }
         let itemSize = NSCollectionLayoutSize(widthDimension: itemWidth, heightDimension: itemHeight)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupWidth = NSCollectionLayoutDimension.fractionalWidth(0.46)
-        let groupFractionalHeight = 354.0 / collectionView.frame.height
-        let groupHeight = NSCollectionLayoutDimension.fractionalHeight(groupFractionalHeight)
+        let groupHeight = itemHeight
         let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: groupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
         let headerWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let headerHeight = NSCollectionLayoutDimension.absolute(51.0)
+        let headerHeight = NSCollectionLayoutDimension.estimated(24.0)
         let headerSize = NSCollectionLayoutSize(widthDimension: headerWidth, heightDimension: headerHeight)
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: elementKindSectionHeader,
-            alignment: NSRectAlignment.topLeading
+            alignment: NSRectAlignment.top
         )
         section.boundarySupplementaryItems = [header]
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 10, bottom: 0, trailing: 10)
         section.orthogonalScrollingBehavior = UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPaging
 
         return section
@@ -275,27 +337,31 @@ private extension ListChannelViewController {
 
     func makeCourseLayoutSection() -> NSCollectionLayoutSection {
         let itemWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let itemHeight = NSCollectionLayoutDimension.fractionalHeight(1.0)
+        let itemHeight: NSCollectionLayoutDimension
+        if #available(iOS 17.0, *) {
+            itemHeight = NSCollectionLayoutDimension.uniformAcrossSiblings(estimate: 354.0)
+        } else {
+            itemHeight = NSCollectionLayoutDimension.estimated(354.0)
+        }
         let itemSize = NSCollectionLayoutSize(widthDimension: itemWidth, heightDimension: itemHeight)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupWidth = NSCollectionLayoutDimension.fractionalWidth(0.46)
-        let groupFractionalHeight = 304.0 / collectionView.frame.height
-        let groupHeight = NSCollectionLayoutDimension.fractionalHeight(groupFractionalHeight)
+        let groupHeight = itemHeight
         let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: groupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
         let headerWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let headerHeight = NSCollectionLayoutDimension.absolute(51.0)
+        let headerHeight = NSCollectionLayoutDimension.absolute(73.0)
         let headerSize = NSCollectionLayoutSize(widthDimension: headerWidth, heightDimension: headerHeight)
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: elementKindSectionHeader,
-            alignment: NSRectAlignment.topLeading
+            alignment: NSRectAlignment.top
         )
         section.boundarySupplementaryItems = [header]
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 10, bottom: 0, trailing: 10)
         section.orthogonalScrollingBehavior = UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPaging
 
         return section
@@ -303,26 +369,31 @@ private extension ListChannelViewController {
 
     func makeSeriesLayoutSection() -> NSCollectionLayoutSection {
         let itemWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let itemHeight = NSCollectionLayoutDimension.fractionalHeight(1.0)
+        let itemHeight: NSCollectionLayoutDimension
+        if #available(iOS 17.0, *) {
+            itemHeight = NSCollectionLayoutDimension.uniformAcrossSiblings(estimate: 235.0)
+        } else {
+            itemHeight = NSCollectionLayoutDimension.estimated(235.0)
+        }
         let itemSize = NSCollectionLayoutSize(widthDimension: itemWidth, heightDimension: itemHeight)
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupWidth = NSCollectionLayoutDimension.fractionalWidth(0.90)
-        let groupHeight = NSCollectionLayoutDimension.absolute(218.0)
+        let groupWidth = NSCollectionLayoutDimension.fractionalWidth(0.91)
+        let groupHeight = itemHeight
         let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: groupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
         let headerWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let headerHeight = NSCollectionLayoutDimension.absolute(51.0)
+        let headerHeight = NSCollectionLayoutDimension.absolute(73.0)
         let headerSize = NSCollectionLayoutSize(widthDimension: headerWidth, heightDimension: headerHeight)
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: elementKindSectionHeader,
-            alignment: NSRectAlignment.topLeading
+            alignment: NSRectAlignment.top
         )
         section.boundarySupplementaryItems = [header]
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 10, bottom: 0, trailing: 10)
         section.orthogonalScrollingBehavior = UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPaging
 
         return section
@@ -339,19 +410,20 @@ private extension ListChannelViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: groupWidth, heightDimension: groupHeight)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.interItemSpacing = NSCollectionLayoutSpacing.fixed(15.0)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
 
         let section = NSCollectionLayoutSection(group: group)
         let headerWidth = NSCollectionLayoutDimension.fractionalWidth(1.0)
-        let headerHeight = NSCollectionLayoutDimension.absolute(51.0)
+        let headerHeight = NSCollectionLayoutDimension.absolute(56.0)
         let headerSize = NSCollectionLayoutSize(widthDimension: headerWidth, heightDimension: headerHeight)
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: elementKindSectionHeader,
-            alignment: NSRectAlignment.topLeading
+            alignment: NSRectAlignment.top
         )
         section.boundarySupplementaryItems = [header]
+        section.contentInsets = NSDirectionalEdgeInsets(top: 19, leading: 10, bottom: 46, trailing: 10)
         section.interGroupSpacing = 16
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
 
         return section
     }
