@@ -18,9 +18,9 @@
 		A4608A912C18686400453455 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A902C18686400453455 /* Collection+Extension.swift */; };
 		A4608A942C187CAB00453455 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4608A932C187CAB00453455 /* Kingfisher */; };
 		A4608A962C187EBB00453455 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A952C187EBB00453455 /* UIImageView+Extension.swift */; };
-		A49C73A22C17433200D4DB6A /* NetworkError+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */; };
+		A49C73A22C17433200D4DB6A /* Error+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A12C17433200D4DB6A /* Error+Enum.swift */; };
 		A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A62C17481900D4DB6A /* Color+Constant.swift */; };
-		A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */; };
+		A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */; };
 		A49C73B02C1755CF00D4DB6A /* GlobalTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AF2C1755CF00D4DB6A /* GlobalTypealiases.swift */; };
 		A49C73B22C17567E00D4DB6A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73B12C17567E00D4DB6A /* NetworkService.swift */; };
 		A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683452C13519F00809BDA /* AppDelegate.swift */; };
@@ -68,9 +68,9 @@
 		A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelCategoryCell.swift; sourceTree = "<group>"; };
 		A4608A902C18686400453455 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		A4608A952C187EBB00453455 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkError+Constant.swift"; sourceTree = "<group>"; };
+		A49C73A12C17433200D4DB6A /* Error+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Enum.swift"; sourceTree = "<group>"; };
 		A49C73A62C17481900D4DB6A /* Color+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Constant.swift"; sourceTree = "<group>"; };
-		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Constant.swift"; sourceTree = "<group>"; };
+		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Enum.swift"; sourceTree = "<group>"; };
 		A49C73AF2C1755CF00D4DB6A /* GlobalTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTypealiases.swift; sourceTree = "<group>"; };
 		A49C73B12C17567E00D4DB6A /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A4E683422C13519F00809BDA /* mindvalleyassessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindvalleyassessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +134,23 @@
 			path = ListChannel;
 			sourceTree = "<group>";
 		};
+		A45F1D772C19A5FA006F4A47 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A45F1D782C19A694006F4A47 /* Error */,
+				A49C73AD2C174C4100D4DB6A /* Network */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		A45F1D782C19A694006F4A47 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				A49C73A12C17433200D4DB6A /* Error+Enum.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		A49C73992C16FB3900D4DB6A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +178,6 @@
 		A49C73A02C1742D700D4DB6A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				A49C73AD2C174C4100D4DB6A /* Network */,
 				A49C73A82C17482900D4DB6A /* UI */,
 			);
 			path = Constants;
@@ -187,8 +203,7 @@
 		A49C73AD2C174C4100D4DB6A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */,
-				A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */,
+				A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -274,6 +289,7 @@
 		A4E683792C13557D00809BDA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A45F1D772C19A5FA006F4A47 /* Enums */,
 				A49C73AE2C1755A700D4DB6A /* Typealiases */,
 				A49C73A02C1742D700D4DB6A /* Constants */,
 				A4E6838E2C13611900809BDA /* Extensions */,
@@ -493,9 +509,9 @@
 				A4FD68DE2C14602300571D8F /* ListChannelTextHeaderView.swift in Sources */,
 				A4E683902C13611F00809BDA /* UIColor+Extension.swift in Sources */,
 				A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */,
-				A49C73A22C17433200D4DB6A /* NetworkError+Constant.swift in Sources */,
+				A49C73A22C17433200D4DB6A /* Error+Enum.swift in Sources */,
 				A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */,
-				A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift in Sources */,
+				A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift in Sources */,
 				A4E683962C137AB100809BDA /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

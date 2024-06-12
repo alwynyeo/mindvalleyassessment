@@ -31,7 +31,7 @@ final class NetworkService: ListChannelServiceProtocol {
             }
 
             guard let self else {
-                result = NewEpisodeResultType.failure(NetworkError.unableToComplete)
+                result = NewEpisodeResultType.failure(AppError.weakReference)
                 return
             }
 
@@ -77,7 +77,7 @@ final class NetworkService: ListChannelServiceProtocol {
             }
 
             guard let self else {
-                result = ChannelResultType.failure(NetworkError.unableToComplete)
+                result = ChannelResultType.failure(AppError.weakReference)
                 return
             }
 
@@ -123,7 +123,7 @@ final class NetworkService: ListChannelServiceProtocol {
             }
 
             guard let self else {
-                result = CategoryResultType.failure(NetworkError.unableToComplete)
+                result = CategoryResultType.failure(AppError.weakReference)
                 return
             }
 
