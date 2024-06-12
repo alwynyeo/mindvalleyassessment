@@ -19,4 +19,6 @@ struct Color {
     static let whiteText = UIColor.white
 
     static let separator = UIColor(hexString: "#3C434E")
+
+    static let indicator = UIColor.white
 }
