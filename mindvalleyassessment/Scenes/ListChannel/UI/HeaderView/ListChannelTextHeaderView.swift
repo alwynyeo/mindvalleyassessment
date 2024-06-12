@@ -11,10 +11,15 @@ final class ListChannelTextHeaderView: UICollectionReusableView {
 
     // MARK: - Declarations
 
+    private var section: ListChannel.Section? {
+        didSet { configureSection() }
+    }
+
     static let headerId = "ListChannelTextHeaderView"
 
     private let titleLabel = UILabel()
     private let separatorView = UIView()
+    private let stackView = UIStackView()
 
     // MARK: - Object Lifecycle
 
@@ -27,26 +32,57 @@ final class ListChannelTextHeaderView: UICollectionReusableView {
         super.init(coder: coder)
         configureUI()
     }
+
+    // MARK: - Helpers
+
+    func configure(section: ListChannel.Section, isSeparatorHidden: Bool = false) {
+        self.section = section
+        separatorView.isHidden = isSeparatorHidden
+    }
+
+    private func configureSection() {
+        guard let section = section else { return }
+        let title = section.title
+
+        titleLabel.text = title
+    }
 }
 
 // MARK: - Programmatic UI Configuration
 private extension ListChannelTextHeaderView {
     func configureUI() {
-        backgroundColor = .green
-        titleLabel.text = "New Episodes"
         titleLabel.textColor = Color.grayText
         titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        titleLabel.backgroundColor = .yellow
-
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        addSubview(titleLabel)
+        let titleLabelContainerView = UIView()
+        titleLabelContainerView.addSubview(titleLabel)
+
+        separatorView.backgroundColor = Color.separator
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+
+        stackView.axis = .vertical
+        stackView.spacing = 30
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.addArrangedSubview(separatorView)
+        stackView.addArrangedSubview(titleLabelContainerView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(stackView)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: 1),
+
+            titleLabel.topAnchor.constraint(equalTo: titleLabelContainerView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: titleLabelContainerView.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: titleLabelContainerView.trailingAnchor, constant: -10),
+            titleLabel.bottomAnchor.constraint(equalTo: titleLabelContainerView.bottomAnchor),
+
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 }
