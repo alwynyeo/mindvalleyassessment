@@ -69,11 +69,16 @@ final class NetworkService: ListChannelServiceProtocol {
     }
 
     func getChannels(from url: URL, completion: @escaping (ChannelResultType) -> Void) {
-        let task = urlSession.dataTask(with: url) { [unowned self] data, response, error in
+        let task = urlSession.dataTask(with: url) { [weak self] data, response, error in
             let result: ChannelResultType
 
             defer {
                 completion(result)
+            }
+
+            guard let self else {
+                result = ChannelResultType.failure(NetworkError.unableToComplete)
+                return
             }
 
             guard error == nil else {
@@ -110,11 +115,16 @@ final class NetworkService: ListChannelServiceProtocol {
     }
 
     func getCategories(from url: URL, completion: @escaping (CategoryResultType) -> Void) {
-        let task = urlSession.dataTask(with: url) { [unowned self] data, response, error in
+        let task = urlSession.dataTask(with: url) { [weak self] data, response, error in
             let result: CategoryResultType
 
             defer {
                 completion(result)
+            }
+
+            guard let self else {
+                result = CategoryResultType.failure(NetworkError.unableToComplete)
+                return
             }
 
             guard error == nil else {
