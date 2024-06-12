@@ -37,7 +37,6 @@ final class ListChannelWorker {
     // MARK: - Helpers
 
     func getEpisodes(completion: @escaping (NewEpisodeResultType) -> Void) {
-
         urlComponents.path = "/raw/z5AExTtw"
 
         guard let url = urlComponents.url else {
