@@ -6,38 +6,38 @@
 //
 
 struct Channel: Decodable {
-    let data: Data
+    let data: Data?
 
     struct Data: Decodable {
-        let channels: [Channel]
+        let channels: [Channel]?
     }
 
     struct Channel: Decodable {
-        let title: String
-        let series: [Series]
-        let mediaCount: Int
-        let latestMedia: [LatestMedia]
-        let id: String
-        let iconAsset: IconAsset
-        let coverAsset: CoverAsset
+        let title: String?
+        let series: [Series]?
+        let mediaCount: Int?
+        let latestMedia: [LatestMedia]?
+        let id: String?
+        let iconAsset: IconAsset?
+        let coverAsset: CoverAsset?
     }
 
     struct Series: Decodable {
-        let title: String
-        let coverAsset: CoverAsset
+        let title: String?
+        let coverAsset: CoverAsset?
     }
 
     struct LatestMedia: Decodable {
-        let type: String
-        let title: String
-        let coverAsset: CoverAsset
+        let type: String?
+        let title: String?
+        let coverAsset: CoverAsset?
     }
 
     struct IconAsset: Decodable {
-        let thumbnailUrl: String
+        let thumbnailUrl: String?
     }
 
     struct CoverAsset: Decodable {
-        let url: String
+        let url: String?
     }
 }

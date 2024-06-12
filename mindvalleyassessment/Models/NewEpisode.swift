@@ -6,24 +6,24 @@
 //
 
 struct NewEpisode: Decodable {
-    let data: Data
+    let data: Data?
 
     struct Data: Decodable {
-        let media: [Media]
+        let media: [Media]?
     }
 
     struct Media: Decodable {
-        let type: String
-        let title: String
-        let coverAsset: CoverAsset
-        let channel: Channel
+        let type: String?
+        let title: String?
+        let coverAsset: CoverAsset?
+        let channel: Channel?
     }
 
     struct CoverAsset: Decodable {
-        let url: String
+        let url: String?
     }
 
     struct Channel: Decodable {
-        let title: String
+        let title: String?
     }
 }

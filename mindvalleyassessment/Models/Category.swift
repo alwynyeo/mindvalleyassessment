@@ -6,13 +6,13 @@
 //
 
 struct Category: Decodable {
-    let data: Data
+    let data: Data?
 
     struct Data: Decodable {
-        let categories: [Categories]
+        let categories: [Categories]?
     }
 
     struct Categories: Decodable {
-        let name: String
+        let name: String?
     }
 }
