@@ -1,9 +1,13 @@
 //
-//  NetworkError+Constant.swift
+//  NetworkError+Enum.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
 //
+
+enum AppError: Error {
+    case weakReference
+}
 
 enum NetworkError: Error {
     case invalidUrl

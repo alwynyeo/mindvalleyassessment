@@ -1,5 +1,5 @@
 //
-//  HttpStatusCode+Constant.swift
+//  NetworkStatusCode+Enum.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
