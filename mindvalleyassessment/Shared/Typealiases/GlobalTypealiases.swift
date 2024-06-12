@@ -6,3 +6,5 @@
 //
 
 typealias NewEpisodeResultType = Result<NewEpisode, NetworkError>
+typealias ChannelResultType = Result<Channel, NetworkError>
+typealias CategoryResultType = Result<Category, NetworkError>
