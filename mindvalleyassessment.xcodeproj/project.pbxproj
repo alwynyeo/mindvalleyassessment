@@ -15,6 +15,9 @@
 		A409A1902C1616FC00CDEDF3 /* ListChannelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */; };
 		A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */; };
 		A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */; };
+		A4608A912C18686400453455 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A902C18686400453455 /* Collection+Extension.swift */; };
+		A4608A942C187CAB00453455 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4608A932C187CAB00453455 /* Kingfisher */; };
+		A4608A962C187EBB00453455 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A952C187EBB00453455 /* UIImageView+Extension.swift */; };
 		A49C73A22C17433200D4DB6A /* NetworkError+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */; };
 		A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A62C17481900D4DB6A /* Color+Constant.swift */; };
 		A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */; };
@@ -63,6 +66,8 @@
 		A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelInteractor.swift; sourceTree = "<group>"; };
 		A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelSeriesCell.swift; sourceTree = "<group>"; };
 		A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelCategoryCell.swift; sourceTree = "<group>"; };
+		A4608A902C18686400453455 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		A4608A952C187EBB00453455 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		A49C73A12C17433200D4DB6A /* NetworkError+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkError+Constant.swift"; sourceTree = "<group>"; };
 		A49C73A62C17481900D4DB6A /* Color+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Constant.swift"; sourceTree = "<group>"; };
 		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Constant.swift"; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4608A942C187CAB00453455 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				A4E6838F2C13611F00809BDA /* UIColor+Extension.swift */,
+				A4608A952C187EBB00453455 /* UIImageView+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -192,6 +199,14 @@
 				A49C73AF2C1755CF00D4DB6A /* GlobalTypealiases.swift */,
 			);
 			path = Typealiases;
+			sourceTree = "<group>";
+		};
+		A49C73B32C1797F100D4DB6A /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A4608A902C18686400453455 /* Collection+Extension.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		A4E683392C13519F00809BDA = {
@@ -287,6 +302,7 @@
 		A4E6838E2C13611900809BDA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A49C73B32C1797F100D4DB6A /* Foundation */,
 				A49C73A92C17485400D4DB6A /* UIKit */,
 			);
 			path = Extensions;
@@ -336,6 +352,9 @@
 			dependencies = (
 			);
 			name = mindvalleyassessment;
+			packageProductDependencies = (
+				A4608A932C187CAB00453455 /* Kingfisher */,
+			);
 			productName = mindvalleyassessment;
 			productReference = A4E683422C13519F00809BDA /* mindvalleyassessment.app */;
 			productType = "com.apple.product-type.application";
@@ -408,6 +427,9 @@
 				Base,
 			);
 			mainGroup = A4E683392C13519F00809BDA;
+			packageReferences = (
+				A4608A922C187CAA00453455 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A4E683432C13519F00809BDA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,7 +480,9 @@
 				A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */,
 				A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */,
 				A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */,
+				A4608A912C18686400453455 /* Collection+Extension.swift in Sources */,
 				A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */,
+				A4608A962C187EBB00453455 /* UIImageView+Extension.swift in Sources */,
 				A409A18E2C1616FC00CDEDF3 /* ListChannelModels.swift in Sources */,
 				A409A18F2C1616FC00CDEDF3 /* ListChannelViewController.swift in Sources */,
 				A49C73B22C17567E00D4DB6A /* NetworkService.swift in Sources */,
@@ -811,6 +835,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A4608A922C187CAA00453455 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4608A932C187CAB00453455 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4608A922C187CAA00453455 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A4E6834E2C13519F00809BDA /* mindvalleyassessment.xcdatamodeld */ = {
