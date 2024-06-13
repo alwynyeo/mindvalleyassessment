@@ -16,6 +16,8 @@ struct Color {
 
     static let grayBackground = UIColor(hexString: "#95989D").withAlphaComponent(0.2)
 
+    static let imageViewBackground = grayBackground
+
     static let whiteText = UIColor.white
 
     static let separator = UIColor(hexString: "#3C434E")
