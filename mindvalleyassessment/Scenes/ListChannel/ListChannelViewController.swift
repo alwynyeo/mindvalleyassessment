@@ -146,6 +146,8 @@ final class ListChannelViewController: UICollectionViewController {
     // MARK: - Interator Logic
 
     private func loadData() {
+        collectionView.startLoading()
+
         let request = ListChannel.LoadData.Request()
         interactor?.loadData(request: request)
     }
@@ -240,6 +242,7 @@ extension ListChannelViewController: ListChannelDisplayLogic {
 
         dataSource.apply(snapshot, animatingDifferences: false)
         print("display loaded data")
+        collectionView.stopLoading()
     }
 }
 
@@ -264,6 +267,8 @@ private extension ListChannelViewController {
         collectionView.contentInset.top = 24
         collectionView.backgroundColor = Color.screenBackgroundColor
         collectionView.alwaysBounceVertical = true
+        collectionView.alwaysBounceHorizontal = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
         collectionView.register(ListChannelDefaultCell.self, forCellWithReuseIdentifier: listChannelDefaultCellId)
         collectionView.register(ListChannelSeriesCell.self, forCellWithReuseIdentifier: listChannelSeriesCellId)
