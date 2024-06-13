@@ -16,7 +16,7 @@ protocol ListChannelDisplayLogic: AnyObject {
 // MARK: - ListChannelViewController Class
 final class ListChannelViewController: UICollectionViewController {
     // MARK: - Declarations
-    
+
     typealias CompositionalLayout = UICollectionViewCompositionalLayout
 
     typealias Section = ListChannel.Section
@@ -24,6 +24,8 @@ final class ListChannelViewController: UICollectionViewController {
     typealias Item = ListChannel.Section.Item
 
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
+
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
 
     private var interactor: ListChannelBusinessLogic?
 
@@ -119,8 +121,6 @@ final class ListChannelViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        print("width::", collectionView.frame.width)
-        print("height::", collectionView.frame.height)
     }
 
     // MARK: - Override Parent Methods
@@ -215,22 +215,31 @@ final class ListChannelViewController: UICollectionViewController {
 
         return dataSource
     }
+
+    private func resetSnapshot(snapshot: inout Snapshot) {
+        let currentSections = snapshot.sectionIdentifiers
+        guard currentSections.isNotEmpty else { return }
+        snapshot.deleteAllItems()
+    }
 }
 
 // MARK: - ListChannelDisplayLogic Extension
 extension ListChannelViewController: ListChannelDisplayLogic {
     func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel) {
-        let sections = viewModel.sections
         var snapshot = dataSource.snapshot()
+        let newSections = viewModel.sections
 
-        snapshot.appendSections(sections)
+        resetSnapshot(snapshot: &snapshot)
 
-        sections.forEach { section in
+        snapshot.appendSections(newSections)
+
+        newSections.forEach { section in
             let items = section.items
             snapshot.appendItems(items, toSection: section)
         }
 
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: false)
+        print("display loaded data")
     }
 }
 
