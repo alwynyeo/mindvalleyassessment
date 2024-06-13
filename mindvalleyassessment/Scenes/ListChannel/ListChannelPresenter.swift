@@ -24,42 +24,36 @@ final class ListChannelPresenter {
     init() {}
 
     // MARK: - Helpers
-
     private func getNewEpisodeSections(from response: ListChannel.LoadData.Response) -> [ListChannel.Section] {
         let newEpisodeData = response.newEpisodeData
 
         guard let data = newEpisodeData?.data else { return [] }
 
-        let newEpisodes = data.media ?? []
-        let sectionTitle = "New Episodes"
-        var sections: [ListChannel.Section] = []
-        var sectionItems: [ListChannel.Section.Item] = []
+        guard let newEpisodes = data.media else { return [] }
 
-        newEpisodes.forEach { newEpisode in
+        let prefixedNewEpisodes = newEpisodes.prefix(6)
+
+        let sectionTitle = "New Episodes"
+
+        let sectionItems = prefixedNewEpisodes.map { newEpisode -> ListChannel.Section.Item in
             let imageUrlString = newEpisode.coverAsset?.url ?? ""
             let imageUrl = URL(string: imageUrlString)
             let title = newEpisode.title ?? ""
             let subTitle = newEpisode.channel?.title ?? ""
-            let item = ListChannel.Section.Item(
+
+            return ListChannel.Section.Item(
                 imageUrl: imageUrl,
                 title: title,
                 subTitle: subTitle
             )
-            sectionItems.append(item)
         }
-
-        let prefixedSectionItems = Array(sectionItems.prefix(6))
-
-        sectionItems = prefixedSectionItems
 
         let section = ListChannel.Section(
             title: sectionTitle,
             items: sectionItems
         )
 
-        sections.append(section)
-
-        return sections
+        return [section]
     }
 
     private func getChannelSections(from response: ListChannel.LoadData.Response) -> [ListChannel.Section] {
@@ -67,46 +61,42 @@ final class ListChannelPresenter {
 
         guard let data = channelData?.data else { return [] }
 
-        let channels = data.channels ?? []
-        var sections: [ListChannel.Section] = []
+        guard let channels = data.channels else { return [] }
 
-        channels.forEach { channel in
+        let sections = channels.map { channel -> ListChannel.Section in
             let sectionImageUrlString = channel.coverAsset?.url ?? ""
             let sectionImageUrl = URL(string: sectionImageUrlString)
             let sectionTitle = channel.title ?? ""
+
             let mediaCount = channel.mediaCount ?? 0
             let episodeString = mediaCount == 1 ? "episode" : "episodes"
             let sectionSubTitle = "\(mediaCount) \(episodeString)"
 
             let sectionItemSeries = channel.series ?? []
             let isSectionSeriesType = sectionItemSeries.isNotEmpty
-            let items = channel.latestMedia ?? []
-            var sectionItems: [ListChannel.Section.Item] = []
 
-            items.forEach { item in
-                let imageUrlString = item.coverAsset?.url ?? ""
+            let latestMedia = channel.latestMedia ?? []
+            let prefixedLatestMedia = latestMedia.prefix(6)
+            let sectionItems = prefixedLatestMedia.map { latestMedia -> ListChannel.Section.Item in
+                let imageUrlString = latestMedia.coverAsset?.url ?? ""
                 let imageUrl = URL(string: imageUrlString)
-                let title = item.title ?? ""
+                let title = latestMedia.title ?? ""
                 let sectionItem = ListChannel.Section.Item(
                     imageUrl: imageUrl,
                     title: title
                 )
-                sectionItems.append(sectionItem)
+                return sectionItem
             }
-
-            let prefixedSectionItems = Array(sectionItems.prefix(6))
-
-            sectionItems = prefixedSectionItems
 
             let section = ListChannel.Section(
                 imageUrl: sectionImageUrl,
-                title: sectionTitle, 
+                title: sectionTitle,
                 subTitle: sectionSubTitle,
                 items: sectionItems,
                 isSeriesType: isSectionSeriesType
             )
 
-            sections.append(section)
+            return section
         }
 
         return sections
@@ -117,17 +107,14 @@ final class ListChannelPresenter {
 
         guard let data = categoryData?.data else { return [] }
 
-        let categories = data.categories ?? []
-        let sectionTitle = "Browse by categories"
-        var sections: [ListChannel.Section] = []
-        var sectionItems: [ListChannel.Section.Item] = []
+        guard let categories = data.categories else { return [] }
 
-        categories.forEach { category in
+        let sectionTitle = "Browse by categories"
+
+        let sectionItems = categories.map { category -> ListChannel.Section.Item in
             let name = category.name ?? ""
-            let item = ListChannel.Section.Item(
-                title: name
-            )
-            sectionItems.append(item)
+            let item = ListChannel.Section.Item(title: name)
+            return item
         }
 
         let section = ListChannel.Section(
@@ -135,9 +122,7 @@ final class ListChannelPresenter {
             items: sectionItems
         )
 
-        sections.append(section)
-
-        return sections
+        return [section]
     }
 }
 
@@ -148,11 +133,7 @@ extension ListChannelPresenter: ListChannelPresentationLogic {
         let channelSections = getChannelSections(from: response)
         let categorySections = getCategorySections(from: response)
 
-        var sections: [ListChannel.Section] = []
-
-        sections.append(contentsOf: newEpisodeSections)
-        sections.append(contentsOf: channelSections)
-        sections.append(contentsOf: categorySections)
+        let sections = newEpisodeSections + channelSections + categorySections
 
         let viewModel = ListChannel.LoadData.ViewModel(sections: sections)
 
