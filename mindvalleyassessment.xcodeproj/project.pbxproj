@@ -27,6 +27,8 @@
 		A47D4DB82C1AF4070086BC93 /* ChannelEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D4DB42C1AF4070086BC93 /* ChannelEntity+CoreDataProperties.swift */; };
 		A47D4DB92C1AF4070086BC93 /* ChannelSubEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D4DB52C1AF4070086BC93 /* ChannelSubEntity+CoreDataClass.swift */; };
 		A47D4DBA2C1AF4070086BC93 /* ChannelSubEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D4DB62C1AF4070086BC93 /* ChannelSubEntity+CoreDataProperties.swift */; };
+		A47D4DBC2C1B52D30086BC93 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D4DBB2C1B52D30086BC93 /* UIView+Extension.swift */; };
+		A47D4DC12C1B5DEE0086BC93 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47D4DC02C1B5DEE0086BC93 /* UIApplication+Extension.swift */; };
 		A49C73A22C17433200D4DB6A /* Error+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A12C17433200D4DB6A /* Error+Enum.swift */; };
 		A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A62C17481900D4DB6A /* Color+Constant.swift */; };
 		A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */; };
@@ -86,6 +88,8 @@
 		A47D4DB42C1AF4070086BC93 /* ChannelEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A47D4DB52C1AF4070086BC93 /* ChannelSubEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelSubEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A47D4DB62C1AF4070086BC93 /* ChannelSubEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChannelSubEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A47D4DBB2C1B52D30086BC93 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A47D4DC02C1B5DEE0086BC93 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		A49C73A12C17433200D4DB6A /* Error+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Enum.swift"; sourceTree = "<group>"; };
 		A49C73A62C17481900D4DB6A /* Color+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Constant.swift"; sourceTree = "<group>"; };
 		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Enum.swift"; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 			children = (
 				A4E6838F2C13611F00809BDA /* UIColor+Extension.swift */,
 				A4608A952C187EBB00453455 /* UIImageView+Extension.swift */,
+				A47D4DBB2C1B52D30086BC93 /* UIView+Extension.swift */,
+				A47D4DC02C1B5DEE0086BC93 /* UIApplication+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -558,11 +564,13 @@
 				A49C73B02C1755CF00D4DB6A /* GlobalTypealiases.swift in Sources */,
 				A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */,
 				A4FD68E02C14641500571D8F /* ListChannelIconTextHeaderView.swift in Sources */,
+				A47D4DC12C1B5DEE0086BC93 /* UIApplication+Extension.swift in Sources */,
 				A4E683A92C1395C700809BDA /* ListChannelDefaultCell.swift in Sources */,
 				A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */,
 				A45F1D7A2C19BCDC006F4A47 /* PersistenceService.swift in Sources */,
 				A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */,
 				A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */,
+				A47D4DBC2C1B52D30086BC93 /* UIView+Extension.swift in Sources */,
 				A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */,
 				A4608A912C18686400453455 /* Collection+Extension.swift in Sources */,
 				A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */,
