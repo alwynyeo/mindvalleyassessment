@@ -33,6 +33,13 @@ final class ListChannelDefaultCell: UICollectionViewCell {
         super.init(coder: coder)
         configureUI()
     }
+    
+    // MARK: - Override Parent Methods
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        clearCache()
+    }
 
     // MARK: - Helpers
 
@@ -55,11 +62,18 @@ final class ListChannelDefaultCell: UICollectionViewCell {
             coverImageView.setImage(with: imageUrl)
         }
     }
+
+    private func clearCache() {
+        coverImageView.image = nil
+        titleLabel.text = nil
+        channelTitleLabel.text = nil
+    }
 }
 
 // MARK: - Programmatic UI Configuration
 private extension ListChannelDefaultCell {
     func configureUI() {
+        coverImageView.backgroundColor = Color.imageViewBackground
         coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
         coverImageView.layer.cornerRadius = 12
         coverImageView.clipsToBounds = true

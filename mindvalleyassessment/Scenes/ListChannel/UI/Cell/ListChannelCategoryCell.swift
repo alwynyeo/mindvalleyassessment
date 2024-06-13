@@ -31,6 +31,13 @@ final class ListChannelCategoryCell: UICollectionViewCell {
         configureUI()
     }
 
+    // MARK: - Override Parent Methods
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        clearCache()
+    }
+
     // MARK: - Helpers
 
     func configure(item: ListChannel.Section.Item) {
@@ -42,6 +49,10 @@ final class ListChannelCategoryCell: UICollectionViewCell {
         let title = item.title
 
         titleLabel.text = title
+    }
+
+    private func clearCache() {
+        titleLabel.text = nil
     }
 }
 

@@ -33,6 +33,13 @@ final class ListChannelSeriesCell: UICollectionViewCell {
         configureUI()
     }
 
+    // MARK: - Override Parent Methods
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        clearCache()
+    }
+
     // MARK: - Helpers
 
     func configure(item: ListChannel.Section.Item) {
@@ -49,11 +56,17 @@ final class ListChannelSeriesCell: UICollectionViewCell {
             coverImageView.setImage(with: imageUrl)
         }
     }
+
+    private func clearCache() {
+        coverImageView.image = nil
+        titleLabel.text = nil
+    }
 }
 
 // MARK: - Programmatic UI Configuration
 private extension ListChannelSeriesCell {
     func configureUI() {
+        coverImageView.backgroundColor = Color.imageViewBackground
         coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
         coverImageView.layer.cornerRadius = 8
         coverImageView.clipsToBounds = true
