@@ -52,7 +52,7 @@ final class ListChannelTextHeaderView: UICollectionReusableView {
 private extension ListChannelTextHeaderView {
     func configureUI() {
         titleLabel.textColor = Color.grayText
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.font = Font.textSectionTitle
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
         let titleLabelContainerView = UIView()

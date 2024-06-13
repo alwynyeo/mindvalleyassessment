@@ -8,3 +8,6 @@
 typealias NewEpisodeResultType = Result<NewEpisode, Error>
 typealias ChannelResultType = Result<Channel, Error>
 typealias CategoryResultType = Result<Category, Error>
+
+typealias Font = Resources.Font
+typealias Color = Resources.Color

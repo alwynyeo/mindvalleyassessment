@@ -103,12 +103,12 @@ private extension ListChannelDefaultCell {
         coverImageViewContainerView.addSubview(coverImageView)
 
         titleLabel.textColor = Color.whiteText
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.font = Font.sectionItemTitle
         titleLabel.numberOfLines = 0
         titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
 
         channelTitleLabel.textColor = Color.grayText
-        channelTitleLabel.font = UIFont.boldSystemFont(ofSize: 13)
+        channelTitleLabel.font = Font.sectionItemSubTitle
         channelTitleLabel.numberOfLines = 0
         channelTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
 
@@ -134,7 +134,7 @@ private extension ListChannelDefaultCell {
             coverImageViewContainerView.widthAnchor.constraint(equalToConstant: contentView.bounds.width - 20),
             coverImageViewContainerView.heightAnchor.constraint(equalToConstant: 228.0),
 
-            labelStackView.topAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor, constant: 10),
+            labelStackView.topAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor, constant: 12),
             labelStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             labelStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             labelStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -24),

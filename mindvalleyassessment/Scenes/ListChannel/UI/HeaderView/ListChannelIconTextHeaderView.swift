@@ -61,15 +61,15 @@ final class ListChannelIconTextHeaderView: UICollectionReusableView {
 private extension ListChannelIconTextHeaderView {
     func configureUI() {
         titleLabel.textColor = Color.whiteText
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.font = Font.iconTextSectionTitle
         titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
 
         subTitleLabel.textColor = Color.grayText
-        subTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        subTitleLabel.font = Font.iconTextSectionSubtitle
         subTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
 
         labelStackView.axis = NSLayoutConstraint.Axis.vertical
-        labelStackView.spacing = 0
+        labelStackView.spacing = 4
         labelStackView.alignment = UIStackView.Alignment.fill
         labelStackView.distribution = UIStackView.Distribution.fill
         labelStackView.addArrangedSubview(titleLabel)

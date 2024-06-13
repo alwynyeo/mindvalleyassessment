@@ -97,7 +97,7 @@ private extension ListChannelSeriesCell {
         coverImageViewContainerView.addSubview(coverImageView)
 
         titleLabel.textColor = Color.whiteText
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.font = Font.sectionItemTitle
         titleLabel.numberOfLines = 0
         titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
 

@@ -74,7 +74,7 @@ private extension ListChannelCategoryCell {
         contentView.layer.cornerRadius = 32
 
         titleLabel.textColor = Color.whiteText
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        titleLabel.font = Font.categoryItemTitle
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

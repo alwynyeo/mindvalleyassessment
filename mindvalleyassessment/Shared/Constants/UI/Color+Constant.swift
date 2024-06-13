@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Color {
+extension Resources.Color {
     static let screenBackgroundColor = UIColor(hexString: "#23272F")
 
     static let navigationBarTitleColor = UIColor(hexString: "#C1C1C1")
