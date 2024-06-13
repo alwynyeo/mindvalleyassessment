@@ -23,4 +23,6 @@ struct Color {
     static let separator = UIColor(hexString: "#3C434E")
 
     static let indicator = UIColor.white
+
+    static let shadow = UIColor.black.cgColor
 }

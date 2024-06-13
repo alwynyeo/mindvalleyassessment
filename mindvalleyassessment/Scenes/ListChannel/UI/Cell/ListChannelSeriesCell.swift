@@ -20,6 +20,7 @@ final class ListChannelSeriesCell: UICollectionViewCell {
     private let coverImageView = UIImageView()
     private let titleLabel = UILabel()
     private let stackView = UIStackView()
+    private let coverImageViewContainerView = UIView()
 
     // MARK: - Object Lifecycle
 
@@ -72,6 +73,18 @@ private extension ListChannelSeriesCell {
         coverImageView.clipsToBounds = true
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
 
+        coverImageViewContainerView.layer.cornerRadius = 8
+        coverImageViewContainerView.clipsToBounds = false
+        coverImageViewContainerView.layer.shadowColor = Color.shadow
+        coverImageViewContainerView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        coverImageViewContainerView.layer.shadowOpacity = 0.4
+        coverImageViewContainerView.layer.shadowRadius = 10.0
+        let renderRect = CGRect(x: 0, y: 0, width: contentView.bounds.width - 20, height: 172)
+        coverImageViewContainerView.layer.shadowPath = UIBezierPath(roundedRect: renderRect, cornerRadius: 8).cgPath
+        coverImageViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+
+        coverImageViewContainerView.addSubview(coverImageView)
+
         titleLabel.textColor = Color.whiteText
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.numberOfLines = 0
@@ -81,20 +94,25 @@ private extension ListChannelSeriesCell {
         stackView.spacing = 11
         stackView.alignment = UIStackView.Alignment.fill
         stackView.distribution = UIStackView.Distribution.fill
-        stackView.addArrangedSubview(coverImageView)
+        stackView.addArrangedSubview(coverImageViewContainerView)
         stackView.addArrangedSubview(titleLabel)
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(stackView)
 
         NSLayoutConstraint.activate([
-            coverImageView.widthAnchor.constraint(equalToConstant: contentView.bounds.width - 20),
-            coverImageView.heightAnchor.constraint(equalToConstant: 172),
+            coverImageView.topAnchor.constraint(equalTo: coverImageViewContainerView.topAnchor),
+            coverImageView.leadingAnchor.constraint(equalTo: coverImageViewContainerView.leadingAnchor),
+            coverImageView.trailingAnchor.constraint(equalTo: coverImageViewContainerView.trailingAnchor),
+            coverImageView.bottomAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor),
+
+            coverImageViewContainerView.widthAnchor.constraint(equalToConstant: contentView.bounds.width - 20),
+            coverImageViewContainerView.heightAnchor.constraint(equalToConstant: 172),
 
             stackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -24),
         ])
     }
 }

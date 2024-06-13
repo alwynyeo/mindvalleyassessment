@@ -21,6 +21,7 @@ final class ListChannelDefaultCell: UICollectionViewCell {
     private let titleLabel = UILabel()
     private let channelTitleLabel = UILabel()
     private let labelStackView = UIStackView()
+    private let coverImageViewContainerView = UIView()
 
     // MARK: - Object Lifecycle
 
@@ -79,6 +80,17 @@ private extension ListChannelDefaultCell {
         coverImageView.clipsToBounds = true
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
 
+        coverImageViewContainerView.layer.cornerRadius = 12
+        coverImageViewContainerView.clipsToBounds = false
+        coverImageViewContainerView.layer.shadowColor = Color.shadow
+        coverImageViewContainerView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        coverImageViewContainerView.layer.shadowOpacity = 0.4
+        coverImageViewContainerView.layer.shadowRadius = 10.0
+        let renderRect = CGRect(x: 0, y: 0, width: contentView.bounds.width - 20, height: 228)
+        coverImageViewContainerView.layer.shadowPath = UIBezierPath(roundedRect: renderRect, cornerRadius: 12).cgPath
+        coverImageViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+        coverImageViewContainerView.addSubview(coverImageView)
+
         titleLabel.textColor = Color.whiteText
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.numberOfLines = 0
@@ -96,20 +108,25 @@ private extension ListChannelDefaultCell {
         labelStackView.addArrangedSubview(titleLabel)
         labelStackView.translatesAutoresizingMaskIntoConstraints = false
 
-        contentView.addSubview(coverImageView)
+        contentView.addSubview(coverImageViewContainerView)
         contentView.addSubview(labelStackView)
 
         NSLayoutConstraint.activate([
-            coverImageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            coverImageView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            coverImageView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            coverImageView.widthAnchor.constraint(equalToConstant: contentView.bounds.width - 20),
-            coverImageView.heightAnchor.constraint(equalToConstant: 228.0),
+            coverImageView.topAnchor.constraint(equalTo: coverImageViewContainerView.topAnchor),
+            coverImageView.leadingAnchor.constraint(equalTo: coverImageViewContainerView.leadingAnchor),
+            coverImageView.trailingAnchor.constraint(equalTo: coverImageViewContainerView.trailingAnchor),
+            coverImageView.bottomAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor),
 
-            labelStackView.topAnchor.constraint(equalTo: coverImageView.bottomAnchor, constant: 10),
+            coverImageViewContainerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            coverImageViewContainerView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            coverImageViewContainerView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            coverImageViewContainerView.widthAnchor.constraint(equalToConstant: contentView.bounds.width - 20),
+            coverImageViewContainerView.heightAnchor.constraint(equalToConstant: 228.0),
+
+            labelStackView.topAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor, constant: 10),
             labelStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             labelStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            labelStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            labelStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -24),
         ])
     }
 }
