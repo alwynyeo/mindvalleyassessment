@@ -44,10 +44,9 @@ extension UIImageView {
             placeholder: placeholder,
             options: [
                 KingfisherOptionsInfoItem.processor(processor),
-                KingfisherOptionsInfoItem.cacheMemoryOnly,
-                KingfisherOptionsInfoItem.fromMemoryCacheOrRefresh,
-                KingfisherOptionsInfoItem.waitForCache,
+                KingfisherOptionsInfoItem.backgroundDecode,
                 KingfisherOptionsInfoItem.transition(ImageTransition.fade(0.3)),
+                KingfisherOptionsInfoItem.waitForCache,
             ]
         ) { result in
             switch result {
