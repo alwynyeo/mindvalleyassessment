@@ -32,7 +32,13 @@ enum ListChannel {
         let items: [Item]
         var isSeriesType: Bool = false
 
-        init(imageUrl: URL? = nil, title: String, subTitle: String? = nil, items: [Item], isSeriesType: Bool = false) {
+        init(
+            imageUrl: URL? = nil,
+            title: String,
+            subTitle: String? = nil,
+            items: [Item],
+            isSeriesType: Bool = false
+        ) {
             self.id = UUID().uuidString
             self.imageUrl = imageUrl
             self.title = title
@@ -47,7 +53,11 @@ enum ListChannel {
             let title: String
             var subTitle: String? = nil
 
-            init(imageUrl: URL? = nil, title: String, subTitle: String? = nil) {
+            init(
+                imageUrl: URL? = nil,
+                title: String,
+                subTitle: String? = nil
+            ) {
                 self.id = UUID().uuidString
                 self.imageUrl = imageUrl
                 self.title = title
