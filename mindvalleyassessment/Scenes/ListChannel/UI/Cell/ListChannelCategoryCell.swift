@@ -31,6 +31,12 @@ final class ListChannelCategoryCell: UICollectionViewCell {
         configureUI()
     }
 
+    // MARK: - Override Parent Properties
+
+    override var isHighlighted: Bool {
+        didSet { shrink(isHighlighted: isHighlighted) }
+    }
+
     // MARK: - Override Parent Methods
     
     override func prepareForReuse() {
@@ -53,6 +59,11 @@ final class ListChannelCategoryCell: UICollectionViewCell {
 
     private func clearCache() {
         titleLabel.text = nil
+    }
+
+    private func shrink(isHighlighted: Bool) {
+        let scale: CGFloat = 0.95
+        shrink(by: scale, isPressed: isHighlighted)
     }
 }
 
