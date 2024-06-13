@@ -9,10 +9,10 @@ struct Category: Decodable {
     let data: Data?
 
     struct Data: Decodable {
-        let categories: [Categories]?
+        let categories: [Category]?
     }
 
-    struct Categories: Decodable {
+    struct Category: Decodable {
         let name: String?
     }
 }
