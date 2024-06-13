@@ -7,22 +7,51 @@
 
 import Foundation
 
-final class NetworkService: ListChannelServiceProtocol {
+final class NetworkService {
     // MARK: - Declarations
 
     static let shared = NetworkService()
 
-    private let urlSession = URLSession.shared
+    private var urlSession: URLSession
 
-    private let decoder = JSONDecoder()
+    private let decoder: JSONDecoder
+
+    private var urlComponents: URLComponents
 
     // MARK: - Object Lifecycle
 
-    private init() {}
+    private init() {
+        // URLSession
+        let urlSessionConfiguration = URLSessionConfiguration.default
+        urlSessionConfiguration.waitsForConnectivity = true
+        urlSessionConfiguration.multipathServiceType = URLSessionConfiguration.MultipathServiceType.handover
+        urlSessionConfiguration.allowsCellularAccess = true
+        urlSessionConfiguration.timeoutIntervalForRequest = 30 // 30 seconds
+        urlSessionConfiguration.timeoutIntervalForResource = 86400 // 1 day
+        urlSession = URLSession(configuration: urlSessionConfiguration)
 
-    // MARK: - Methods
+        // JSONDecoder
+        let decoder = JSONDecoder()
+        self.decoder = decoder
 
-    func getNewEpisodes(from url: URL, completion: @escaping (NewEpisodeResultType) -> Void) {
+        // URLComponents
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "pastebin.com"
+        self.urlComponents = urlComponents
+    }
+}
+
+// MARK: - ListChannelServiceProtocol
+extension NetworkService: ListChannelServiceProtocol {
+    func getNewEpisodes(completion: @escaping (NewEpisodeResultType) -> Void) {
+        urlComponents.path = "/raw/z5AExTtw"
+
+        guard let url = urlComponents.url else {
+            completion(NewEpisodeResultType.failure(NetworkError.invalidUrl))
+            return
+        }
+
         let task = urlSession.dataTask(with: url) { [weak self] data, response, error in
             let result: NewEpisodeResultType
 
@@ -68,7 +97,14 @@ final class NetworkService: ListChannelServiceProtocol {
         task.resume()
     }
 
-    func getChannels(from url: URL, completion: @escaping (ChannelResultType) -> Void) {
+    func getChannels(completion: @escaping (ChannelResultType) -> Void) {
+        urlComponents.path = "/raw/Xt12uVhM"
+
+        guard let url = urlComponents.url else {
+            completion(ChannelResultType.failure(NetworkError.invalidUrl))
+            return
+        }
+
         let task = urlSession.dataTask(with: url) { [weak self] data, response, error in
             let result: ChannelResultType
 
@@ -114,7 +150,14 @@ final class NetworkService: ListChannelServiceProtocol {
         task.resume()
     }
 
-    func getCategories(from url: URL, completion: @escaping (CategoryResultType) -> Void) {
+    func getCategories(completion: @escaping (CategoryResultType) -> Void) {
+        urlComponents.path = "/raw/A0CgArX3"
+
+        guard let url = urlComponents.url else {
+            completion(CategoryResultType.failure(NetworkError.invalidUrl))
+            return
+        }
+
         let task = urlSession.dataTask(with: url) { [weak self] data, response, error in
             let result: CategoryResultType
 
