@@ -5,4 +5,8 @@
 //  Created by Alwyn Yeo on 6/14/24.
 //
 
-import Foundation
+struct Resources {
+    struct Color {}
+    
+    struct Font {}
+}
