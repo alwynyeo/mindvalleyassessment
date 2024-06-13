@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoryEntity" representedClassName=".CategoryEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ChannelEntity" representedClassName=".ChannelEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageUrlString" optional="YES" attributeType="String"/>
+        <attribute name="mediaCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="channelItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ChannelSubEntity" inverseName="channel" inverseEntity="ChannelSubEntity"/>
+    </entity>
+    <entity name="ChannelSubEntity" representedClassName=".ChannelSubEntity" syncable="YES">
+        <attribute name="imageUrlString" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChannelEntity" inverseName="channelItems" inverseEntity="ChannelEntity"/>
+    </entity>
+    <entity name="NewEpisodeEntity" representedClassName=".NewEpisodeEntity" syncable="YES">
+        <attribute name="channelTitle" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageUrlString" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+</model>
