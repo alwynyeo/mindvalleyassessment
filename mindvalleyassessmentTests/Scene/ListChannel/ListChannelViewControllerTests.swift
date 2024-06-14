@@ -12,7 +12,7 @@ final class ListChannelViewControllerTests: XCTestCase {
 
     // MARK: - Subject Under Test
 
-    var sut: ListChannelViewController!
+    var sut: ListChannelsViewController!
 
     var window: UIWindow!
 
@@ -37,7 +37,7 @@ final class ListChannelViewControllerTests: XCTestCase {
     // MARK: - Test Setup
 
     func setupListChannelViewController() {
-        let viewController = ListChannelViewController()
+        let viewController = ListChannelsViewController()
         sut = viewController
     }
 

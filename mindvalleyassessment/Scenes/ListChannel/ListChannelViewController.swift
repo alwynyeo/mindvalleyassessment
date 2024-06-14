@@ -1,5 +1,5 @@
 //
-//  ListChannelViewController.swift
+//  ListChannelsViewController.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -13,8 +13,8 @@ protocol ListChannelDisplayLogic: AnyObject {
     func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel)
 }
 
-// MARK: - ListChannelViewController Class
-final class ListChannelViewController: UICollectionViewController {
+// MARK: - ListChannelsViewController Class
+final class ListChannelsViewController: UICollectionViewController {
     // MARK: - Declarations
 
     typealias CompositionalLayout = UICollectionViewCompositionalLayout
@@ -61,7 +61,7 @@ final class ListChannelViewController: UICollectionViewController {
     }
 
     deinit {
-        print("Deinit ListChannelViewController")
+        print("Deinit ListChannelsViewController")
         notificationCenter.removeObserver(self, name: NotificationName.refreshNotification, object: nil)
     }
 
@@ -255,7 +255,7 @@ final class ListChannelViewController: UICollectionViewController {
 }
 
 // MARK: - ListChannelDisplayLogic Extension
-extension ListChannelViewController: ListChannelDisplayLogic {
+extension ListChannelsViewController: ListChannelDisplayLogic {
     func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel) {
         var snapshot = dataSource.snapshot()
         let newSections = viewModel.sections
@@ -276,7 +276,7 @@ extension ListChannelViewController: ListChannelDisplayLogic {
 }
 
 // MARK: - Programmatic UI Configuration
-private extension ListChannelViewController {
+private extension ListChannelsViewController {
     func configureUI() {
         title = "Channels"
 

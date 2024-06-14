@@ -18,7 +18,7 @@ protocol ListChannelDataPassing {
 final class ListChannelRouter {
     // MARK: - Declarations
     
-    weak var viewController: ListChannelViewController?
+    weak var viewController: ListChannelsViewController?
     
     var dataStore: ListChannelDataStore?
 
@@ -30,7 +30,7 @@ final class ListChannelRouter {
 
     // MARK: - Navigation
 
-//    private func navigateToSomewhere(source: ListChannelViewController, destination: SomewhereViewController) {
+//    private func navigateToSomewhere(source: ListChannelsViewController, destination: SomewhereViewController) {
 //        source.show(destination, sender: nil)
 //    }
 }
