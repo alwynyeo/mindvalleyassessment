@@ -11,6 +11,7 @@ import Foundation
 // MARK: - ListChannelBusinessLogic Protocol
 protocol ListChannelBusinessLogic {
     func loadData(request: ListChannel.LoadData.Request)
+    func refreshData(request: ListChannel.RefreshData.Request)
 }
 
 // MARK: - ListChannelDataStore Protocol
@@ -106,6 +107,10 @@ final class ListChannelInteractor {
 extension ListChannelInteractor: ListChannelBusinessLogic {
     func loadData(request: ListChannel.LoadData.Request) {
         loadLocalData()
+    }
+
+    func refreshData(request: ListChannel.RefreshData.Request) {
+        loadCloudData()
     }
 }
 

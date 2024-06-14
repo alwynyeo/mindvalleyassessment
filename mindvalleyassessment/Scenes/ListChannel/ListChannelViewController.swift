@@ -23,7 +23,7 @@ final class ListChannelViewController: UICollectionViewController {
 
     typealias Item = ListChannel.Section.Item
 
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
+    typealias DataSource = EmptyableUICollectionViewDiffableDataSource<Section, Item>
 
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
 
@@ -40,6 +40,8 @@ final class ListChannelViewController: UICollectionViewController {
     private let elementKindSectionHeader = UICollectionView.elementKindSectionHeader
 
     private lazy var dataSource = makeDataSource()
+
+    private let notificationCenter = NotificationCenter.default
 
     // MARK: - Object Lifecycle
 
@@ -60,6 +62,7 @@ final class ListChannelViewController: UICollectionViewController {
 
     deinit {
         print("Deinit ListChannelViewController")
+        notificationCenter.removeObserver(self, name: NotificationName.refreshNotification, object: nil)
     }
 
     // MARK: - View Lifecycle
@@ -120,6 +123,7 @@ final class ListChannelViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addRefreshNotificationObserver()
         loadData()
     }
 
@@ -152,10 +156,19 @@ final class ListChannelViewController: UICollectionViewController {
         interactor?.loadData(request: request)
     }
 
+    private func refreshData() {
+        collectionView.startLoading()
+
+        let request = ListChannel.RefreshData.Request()
+        interactor?.refreshData(request: request)
+    }
+
     // MARK: - Helpers
 
     private func makeDataSource() -> DataSource {
-        let dataSource = DataSource(collectionView: collectionView) { [unowned self] collectionView, indexPath, item in
+        let emptyStateView = EmptyStateView(frame: collectionView.bounds)
+
+        let dataSource = DataSource(collectionView: collectionView, emptyStateView: emptyStateView) { [unowned self] collectionView, indexPath, item in
             let defaultCell = UICollectionViewCell()
 
             let snapshot = self.dataSource.snapshot()
@@ -218,10 +231,26 @@ final class ListChannelViewController: UICollectionViewController {
         return dataSource
     }
 
-    private func resetSnapshot(snapshot: inout Snapshot) {
+    private func resetSnapshot(snapshot: inout Snapshot, newSections: [ListChannel.Section]) {
         let currentSections = snapshot.sectionIdentifiers
-        guard currentSections.isNotEmpty else { return }
+        guard currentSections.isNotEmpty && newSections.isNotEmpty else { return }
         snapshot.deleteAllItems()
+    }
+
+    private func addRefreshNotificationObserver() {
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(handleRefresh),
+            name: NotificationName.refreshNotification,
+            object: nil
+        )
+    }
+
+    // MARK: - Objc Helpers
+
+    @objc private func handleRefresh() {
+        collectionView.backgroundView = nil
+        refreshData()
     }
 }
 
@@ -231,7 +260,7 @@ extension ListChannelViewController: ListChannelDisplayLogic {
         var snapshot = dataSource.snapshot()
         let newSections = viewModel.sections
 
-        resetSnapshot(snapshot: &snapshot)
+        resetSnapshot(snapshot: &snapshot, newSections: newSections)
 
         snapshot.appendSections(newSections)
 

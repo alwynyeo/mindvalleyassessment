@@ -19,6 +19,9 @@
 		A42318C12C1B93070030A354 /* Font+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42318C02C1B93070030A354 /* Font+Constant.swift */; };
 		A42318C42C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */; };
 		A42318C62C1B93BF0030A354 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42318C52C1B93BF0030A354 /* Resources.swift */; };
+		A45B06112C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */; };
+		A45B06132C1C12120081DA38 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06122C1C12120081DA38 /* EmptyStateView.swift */; };
+		A45B06162C1C1CC70081DA38 /* NotificationName+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */; };
 		A45F1D7A2C19BCDC006F4A47 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F1D792C19BCDC006F4A47 /* PersistenceService.swift */; };
 		A4608A912C18686400453455 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A902C18686400453455 /* Collection+Extension.swift */; };
 		A4608A942C187CAB00453455 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4608A932C187CAB00453455 /* Kingfisher */; };
@@ -99,6 +102,9 @@
 		A42318C02C1B93070030A354 /* Font+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Constant.swift"; sourceTree = "<group>"; };
 		A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFontDescriptorAttributeName+Extension.swift"; sourceTree = "<group>"; };
 		A42318C52C1B93BF0030A354 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableCollectionViewDiffableDataSource.swift; sourceTree = "<group>"; };
+		A45B06122C1C12120081DA38 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Constant.swift"; sourceTree = "<group>"; };
 		A45F1D792C19BCDC006F4A47 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		A4608A902C18686400453455 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		A4608A952C187EBB00453455 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -199,6 +205,23 @@
 				A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */,
 			);
 			path = UIFont;
+			sourceTree = "<group>";
+		};
+		A45B060F2C1BFFBA0081DA38 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */,
+				A45B06122C1C12120081DA38 /* EmptyStateView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A45B06142C1C1CB70081DA38 /* NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */,
+			);
+			path = NotificationCenter;
 			sourceTree = "<group>";
 		};
 		A45F1D772C19A5FA006F4A47 /* Enums */ = {
@@ -330,6 +353,7 @@
 		A49C73A02C1742D700D4DB6A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				A45B06142C1C1CB70081DA38 /* NotificationCenter */,
 				A49C73A82C17482900D4DB6A /* UI */,
 			);
 			path = Constants;
@@ -447,6 +471,7 @@
 		A4E683792C13557D00809BDA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A45B060F2C1BFFBA0081DA38 /* UI */,
 				A45F1D772C19A5FA006F4A47 /* Enums */,
 				A49C73AE2C1755A700D4DB6A /* Typealiases */,
 				A49C73A02C1742D700D4DB6A /* Constants */,
@@ -667,12 +692,14 @@
 				A4FD68E02C14641500571D8F /* ListChannelIconTextHeaderView.swift in Sources */,
 				A47D4DC12C1B5DEE0086BC93 /* UIApplication+Extension.swift in Sources */,
 				A4E683A92C1395C700809BDA /* ListChannelDefaultCell.swift in Sources */,
+				A45B06162C1C1CC70081DA38 /* NotificationName+Constant.swift in Sources */,
 				A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */,
 				A45F1D7A2C19BCDC006F4A47 /* PersistenceService.swift in Sources */,
 				A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */,
 				A42318C42C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift in Sources */,
 				A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */,
 				A47D4DBC2C1B52D30086BC93 /* UIView+ActivityIndicator+Extension.swift in Sources */,
+				A45B06112C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift in Sources */,
 				A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */,
 				A4608A912C18686400453455 /* Collection+Extension.swift in Sources */,
 				A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */,
@@ -694,6 +721,7 @@
 				A4E683902C13611F00809BDA /* UIColor+Extension.swift in Sources */,
 				A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */,
 				A49C73A22C17433200D4DB6A /* Error+Enum.swift in Sources */,
+				A45B06132C1C12120081DA38 /* EmptyStateView.swift in Sources */,
 				A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */,
 				A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift in Sources */,
 				A4E683962C137AB100809BDA /* Category.swift in Sources */,

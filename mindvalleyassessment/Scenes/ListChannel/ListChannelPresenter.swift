@@ -31,6 +31,8 @@ final class ListChannelPresenter {
 
         guard let newEpisodes = data.media else { return [] }
 
+        guard newEpisodes.isNotEmpty else { return [] }
+
         let prefixedNewEpisodes = newEpisodes.prefix(6)
 
         let sectionTitle = "New Episodes"
@@ -62,6 +64,8 @@ final class ListChannelPresenter {
         guard let data = channelData?.data else { return [] }
 
         guard let channels = data.channels else { return [] }
+
+        guard channels.isNotEmpty else { return [] }
 
         let sections = channels.map { channel -> ListChannel.Section in
             let sectionImageUrlString = channel.coverAsset?.url ?? ""
@@ -108,6 +112,8 @@ final class ListChannelPresenter {
         guard let data = categoryData?.data else { return [] }
 
         guard let categories = data.categories else { return [] }
+
+        guard categories.isNotEmpty else { return [] }
 
         let sectionTitle = "Browse by categories"
 

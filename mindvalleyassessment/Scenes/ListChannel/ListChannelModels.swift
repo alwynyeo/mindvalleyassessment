@@ -24,6 +24,10 @@ enum ListChannel {
         }
     }
 
+    enum RefreshData {
+        struct Request {}
+    }
+
     struct Section: Hashable {
         let id: String
         var imageUrl: URL? = nil
