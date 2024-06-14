@@ -27,7 +27,7 @@ final class NetworkService {
         urlSessionConfiguration.multipathServiceType = URLSessionConfiguration.MultipathServiceType.handover
         urlSessionConfiguration.allowsCellularAccess = true
         urlSessionConfiguration.timeoutIntervalForRequest = 30 // 30 seconds
-        urlSessionConfiguration.timeoutIntervalForResource = 86400 // 1 day
+        urlSessionConfiguration.timeoutIntervalForResource = 15 // 10 seconds
         urlSession = URLSession(configuration: urlSessionConfiguration)
 
         // JSONDecoder
