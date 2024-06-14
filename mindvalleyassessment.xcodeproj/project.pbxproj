@@ -22,6 +22,7 @@
 		A45B06112C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */; };
 		A45B06132C1C12120081DA38 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06122C1C12120081DA38 /* EmptyStateView.swift */; };
 		A45B06162C1C1CC70081DA38 /* NotificationName+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */; };
+		A45B061A2C1C2F680081DA38 /* ListChannelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06192C1C2F680081DA38 /* ListChannelViewControllerTests.swift */; };
 		A45F1D7A2C19BCDC006F4A47 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F1D792C19BCDC006F4A47 /* PersistenceService.swift */; };
 		A4608A912C18686400453455 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A902C18686400453455 /* Collection+Extension.swift */; };
 		A4608A942C187CAB00453455 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4608A932C187CAB00453455 /* Kingfisher */; };
@@ -105,6 +106,7 @@
 		A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableCollectionViewDiffableDataSource.swift; sourceTree = "<group>"; };
 		A45B06122C1C12120081DA38 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Constant.swift"; sourceTree = "<group>"; };
+		A45B06192C1C2F680081DA38 /* ListChannelViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelViewControllerTests.swift; sourceTree = "<group>"; };
 		A45F1D792C19BCDC006F4A47 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		A4608A902C18686400453455 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		A4608A952C187EBB00453455 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -222,6 +224,22 @@
 				A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */,
 			);
 			path = NotificationCenter;
+			sourceTree = "<group>";
+		};
+		A45B06172C1C2F050081DA38 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A45B06182C1C2F120081DA38 /* ListChannel */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		A45B06182C1C2F120081DA38 /* ListChannel */ = {
+			isa = PBXGroup;
+			children = (
+				A45B06192C1C2F680081DA38 /* ListChannelViewControllerTests.swift */,
+			);
+			path = ListChannel;
 			sourceTree = "<group>";
 		};
 		A45F1D772C19A5FA006F4A47 /* Enums */ = {
@@ -445,6 +463,7 @@
 		A4E6835E2C1351A300809BDA /* mindvalleyassessmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				A45B06172C1C2F050081DA38 /* Scene */,
 				A4E6835F2C1351A300809BDA /* mindvalleyassessmentTests.swift */,
 			);
 			path = mindvalleyassessmentTests;
@@ -736,6 +755,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A45B061A2C1C2F680081DA38 /* ListChannelViewControllerTests.swift in Sources */,
 				A4E683602C1351A300809BDA /* mindvalleyassessmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

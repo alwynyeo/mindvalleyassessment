@@ -39,7 +39,7 @@ final class ListChannelViewController: UICollectionViewController {
 
     private let elementKindSectionHeader = UICollectionView.elementKindSectionHeader
 
-    private lazy var dataSource = makeDataSource()
+    private(set) lazy var dataSource = makeDataSource()
 
     private let notificationCenter = NotificationCenter.default
 
@@ -233,8 +233,8 @@ final class ListChannelViewController: UICollectionViewController {
 
     private func resetSnapshot(snapshot: inout Snapshot, newSections: [ListChannel.Section]) {
         let currentSections = snapshot.sectionIdentifiers
-        guard currentSections.isNotEmpty && newSections.isNotEmpty else { return }
-        snapshot.deleteAllItems()
+//        guard currentSections.isNotEmpty && newSections.isNotEmpty else { return }
+//        snapshot.deleteAllItems()
     }
 
     private func addRefreshNotificationObserver() {
