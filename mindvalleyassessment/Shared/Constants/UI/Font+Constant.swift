@@ -25,11 +25,15 @@ extension Resources.Font {
 
     static let iconTextSectionTitle = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight(700))
 
-    static let iconTextSectionSubtitle = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight(600))
+    static let iconTextSectionSubtitle = UIFont.robotoMediumSystemFont(ofSize: 16)
 
     static let categoryItemTitle = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight(700))
 
     static let sectionItemTitle = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight(800))
 
-    static let sectionItemSubTitle = UIFont.boldSystemFont(ofSize: 13)
+    static let sectionItemSubTitle = UIFont.robotoBlackSystemFont(ofSize: 13)
+
+    static let emptyStateSubTitle = UIFont.boldSystemFont(ofSize: 14)
+
+    static let boldTitle = UIFont.boldSystemFont(ofSize: 24)
 }

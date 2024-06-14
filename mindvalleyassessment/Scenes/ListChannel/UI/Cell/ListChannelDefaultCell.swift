@@ -105,12 +105,12 @@ private extension ListChannelDefaultCell {
         titleLabel.textColor = Color.whiteText
         titleLabel.font = Font.sectionItemTitle
         titleLabel.numberOfLines = 0
-        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
+        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
 
         channelTitleLabel.textColor = Color.grayText
         channelTitleLabel.font = Font.sectionItemSubTitle
         channelTitleLabel.numberOfLines = 0
-        channelTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
+        channelTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.vertical)
 
         labelStackView.axis = NSLayoutConstraint.Axis.vertical
         labelStackView.spacing = 12

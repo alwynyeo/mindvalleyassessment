@@ -62,14 +62,14 @@ private extension ListChannelIconTextHeaderView {
     func configureUI() {
         titleLabel.textColor = Color.whiteText
         titleLabel.font = Font.iconTextSectionTitle
-        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
+        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
 
         subTitleLabel.textColor = Color.grayText
         subTitleLabel.font = Font.iconTextSectionSubtitle
-        subTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .vertical)
+        subTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.vertical)
 
         labelStackView.axis = NSLayoutConstraint.Axis.vertical
-        labelStackView.spacing = 4
+        labelStackView.spacing = 0
         labelStackView.alignment = UIStackView.Alignment.fill
         labelStackView.distribution = UIStackView.Distribution.fill
         labelStackView.addArrangedSubview(titleLabel)

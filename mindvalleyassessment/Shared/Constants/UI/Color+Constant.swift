@@ -25,4 +25,6 @@ extension Resources.Color {
     static let indicator = UIColor.white
 
     static let shadow = UIColor.black.cgColor
+
+    static let emptyStateTitle = navigationBarTitleColor
 }
