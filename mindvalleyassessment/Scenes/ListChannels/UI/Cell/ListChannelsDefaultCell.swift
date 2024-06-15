@@ -19,7 +19,7 @@ final class ListChannelsDefaultCell: UICollectionViewCell {
 
     private let coverImageView = UIImageView()
     private let titleLabel = UILabel()
-    private let channelTitleLabel = UILabel()
+    private let subTitleLabel = UILabel()
     private let labelStackView = UIStackView()
     private let coverImageViewContainerView = UIView()
 
@@ -61,8 +61,8 @@ final class ListChannelsDefaultCell: UICollectionViewCell {
         titleLabel.text = title
 
         if let subTitle = item.subTitle {
-            channelTitleLabel.text = subTitle.uppercased()
-            labelStackView.addArrangedSubview(channelTitleLabel)
+            subTitleLabel.text = subTitle.uppercased()
+            labelStackView.addArrangedSubview(subTitleLabel)
         }
 
         if let imageUrl = item.imageUrl {
@@ -73,7 +73,7 @@ final class ListChannelsDefaultCell: UICollectionViewCell {
     private func clearCache() {
         coverImageView.image = nil
         titleLabel.text = nil
-        channelTitleLabel.text = nil
+        subTitleLabel.text = nil
     }
 
     private func shrink(isHighlighted: Bool) {
@@ -85,59 +85,95 @@ final class ListChannelsDefaultCell: UICollectionViewCell {
 // MARK: - Programmatic UI Configuration
 private extension ListChannelsDefaultCell {
     func configureUI() {
-        coverImageView.backgroundColor = Color.imageViewBackground
-        coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
-        coverImageView.layer.cornerRadius = 12
-        coverImageView.clipsToBounds = true
-        coverImageView.translatesAutoresizingMaskIntoConstraints = false
+        configureCoverImageViewContainerView()
+        configureCoverImageView()
+        configureTitleLabel()
+        configureSubTitleLabel()
+        configureLabelStackView()
+    }
 
+    func configureCoverImageViewContainerView() {
+        let renderRect = CGRect(x: 0, y: 0, width: contentView.bounds.width - 20, height: 228)
+        let shadowPath = UIBezierPath(roundedRect: renderRect, cornerRadius: 12).cgPath
         coverImageViewContainerView.layer.cornerRadius = 12
         coverImageViewContainerView.clipsToBounds = false
         coverImageViewContainerView.layer.shadowColor = Color.shadow
         coverImageViewContainerView.layer.shadowOffset = CGSize(width: 0, height: 10)
         coverImageViewContainerView.layer.shadowOpacity = 0.4
         coverImageViewContainerView.layer.shadowRadius = 10.0
-        let renderRect = CGRect(x: 0, y: 0, width: contentView.bounds.width - 20, height: 228)
-        coverImageViewContainerView.layer.shadowPath = UIBezierPath(roundedRect: renderRect, cornerRadius: 12).cgPath
+        coverImageViewContainerView.layer.shadowPath = shadowPath
         coverImageViewContainerView.translatesAutoresizingMaskIntoConstraints = false
+
         coverImageViewContainerView.addSubview(coverImageView)
 
-        titleLabel.textColor = Color.whiteText
-        titleLabel.font = Font.sectionItemTitle
-        titleLabel.numberOfLines = 0
-        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
-
-        channelTitleLabel.textColor = Color.grayText
-        channelTitleLabel.font = Font.sectionItemSubTitle
-        channelTitleLabel.numberOfLines = 0
-        channelTitleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.vertical)
-
-        labelStackView.axis = NSLayoutConstraint.Axis.vertical
-        labelStackView.spacing = 12
-        labelStackView.alignment = UIStackView.Alignment.fill
-        labelStackView.distribution = UIStackView.Distribution.fill
-        labelStackView.addArrangedSubview(titleLabel)
-        labelStackView.translatesAutoresizingMaskIntoConstraints = false
-
         contentView.addSubview(coverImageViewContainerView)
-        contentView.addSubview(labelStackView)
 
-        NSLayoutConstraint.activate([
-            coverImageView.topAnchor.constraint(equalTo: coverImageViewContainerView.topAnchor),
-            coverImageView.leadingAnchor.constraint(equalTo: coverImageViewContainerView.leadingAnchor),
-            coverImageView.trailingAnchor.constraint(equalTo: coverImageViewContainerView.trailingAnchor),
-            coverImageView.bottomAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor),
-
+        let constraints = [
             coverImageViewContainerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             coverImageViewContainerView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             coverImageViewContainerView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             coverImageViewContainerView.widthAnchor.constraint(equalToConstant: contentView.bounds.width - 20),
-            coverImageViewContainerView.heightAnchor.constraint(equalToConstant: 228.0),
+            coverImageViewContainerView.heightAnchor.constraint(equalToConstant: 228.0)
+        ]
 
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func configureCoverImageView() {
+        coverImageView.backgroundColor = Color.imageViewBackground
+        coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
+        coverImageView.layer.cornerRadius = 12
+        coverImageView.clipsToBounds = true
+        coverImageView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            coverImageView.topAnchor.constraint(equalTo: coverImageViewContainerView.topAnchor),
+            coverImageView.leadingAnchor.constraint(equalTo: coverImageViewContainerView.leadingAnchor),
+            coverImageView.trailingAnchor.constraint(equalTo: coverImageViewContainerView.trailingAnchor),
+            coverImageView.bottomAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func configureTitleLabel() {
+        titleLabel.textColor = Color.whiteText
+        titleLabel.font = Font.sectionItemTitle
+        titleLabel.numberOfLines = 0
+        titleLabel.setContentHuggingPriority(
+            UILayoutPriority.defaultLow,
+            for: NSLayoutConstraint.Axis.vertical
+        )
+    }
+
+    func configureSubTitleLabel() {
+        subTitleLabel.textColor = Color.grayText
+        subTitleLabel.font = Font.sectionItemSubTitle
+        subTitleLabel.numberOfLines = 0
+        subTitleLabel.setContentHuggingPriority(
+            UILayoutPriority.defaultHigh,
+            for: NSLayoutConstraint.Axis.vertical
+        )
+    }
+
+    func configureLabelStackView() {
+        labelStackView.axis = NSLayoutConstraint.Axis.vertical
+        labelStackView.spacing = 12
+        labelStackView.alignment = UIStackView.Alignment.fill
+        labelStackView.distribution = UIStackView.Distribution.fill
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        labelStackView.addArrangedSubview(titleLabel)
+
+        contentView.addSubview(labelStackView)
+
+        let constraints = [
             labelStackView.topAnchor.constraint(equalTo: coverImageViewContainerView.bottomAnchor, constant: 12),
             labelStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             labelStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            labelStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -24),
-        ])
+            labelStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -24)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 }

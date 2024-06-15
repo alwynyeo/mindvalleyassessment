@@ -25,6 +25,8 @@ final class ListChannelsViewController: UICollectionViewController {
 
     typealias DataSource = EmptyableUICollectionViewDiffableDataSource<Section, Item>
 
+    typealias DataSourceSupplementaryViewProvider = EmptyableUICollectionViewDiffableDataSource<Section, Item>.SupplementaryViewProvider
+
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
 
     var interactor: ListChannelsBusinessLogic?
@@ -70,55 +72,7 @@ final class ListChannelsViewController: UICollectionViewController {
     override func loadView() {
         super.loadView()
         configureUI()
-        dataSource.supplementaryViewProvider = { [unowned self] (collectionView, kind, indexPath) in
-            let defaultHeaderView = UICollectionReusableView()
-
-            let snapshot = self.dataSource.snapshot()
-
-            let sections = snapshot.sectionIdentifiers
-
-            let sectionIndex = indexPath.section
-
-            let section = sections[sectionIndex]
-
-            let lastSectionIndex = sections.count - 1
-
-            let isFirstSection = sectionIndex == 0
-
-            let isLastSection = sectionIndex == lastSectionIndex
-
-            if isFirstSection {
-                guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: ListChannelsTextHeaderView.headerId,
-                    for: indexPath
-                ) as? ListChannelsTextHeaderView else {
-                    return defaultHeaderView
-                }
-                headerView.configure(section: section, isSeparatorHidden: true)
-                return headerView
-            } else if isLastSection {
-                guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: ListChannelsTextHeaderView.headerId,
-                    for: indexPath
-                ) as? ListChannelsTextHeaderView else {
-                    return defaultHeaderView
-                }
-                headerView.configure(section: section)
-                return headerView
-            } else {
-                guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: ListChannelsIconTextHeaderView.headerId,
-                    for: indexPath
-                ) as? ListChannelsIconTextHeaderView else {
-                    return defaultHeaderView
-                }
-                headerView.configure(section: section)
-                return headerView
-            }
-        }
+        dataSource.supplementaryViewProvider = makeDataSourceSupplementaryView()
     }
 
     override func viewDidLoad() {
@@ -170,7 +124,6 @@ final class ListChannelsViewController: UICollectionViewController {
 
         let dataSource = DataSource(collectionView: collectionView, emptyStateView: emptyStateView) { [unowned self] collectionView, indexPath, item in
             let defaultCell = UICollectionViewCell()
-
             let snapshot = self.dataSource.snapshot()
 
             guard let section = snapshot.sectionIdentifier(containingItem: item) else {
@@ -178,44 +131,10 @@ final class ListChannelsViewController: UICollectionViewController {
             }
 
             let sectionIndex = indexPath.section
-
             let lastSectionIndex = snapshot.sectionIdentifiers.count - 1
 
-            let isFirstSection = sectionIndex == 0
-
-            let isLastSection = sectionIndex == lastSectionIndex
-
-            let isSectionSeriesType = section.isSeriesType
-
-            if isFirstSection {
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ListChannelsDefaultCellId,
-                    for: indexPath
-                ) as? ListChannelsDefaultCell else {
-                    return defaultCell
-                }
-                cell.configure(item: item)
-                return cell
-            } else if isLastSection {
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: ListChannelsCategoryCellId,
-                    for: indexPath
-                ) as? ListChannelsCategoryCell else {
-                    return defaultCell
-                }
-                cell.configure(item: item)
-                return cell
-            } else {
-                if isSectionSeriesType {
-                    guard let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: ListChannelsSeriesCellId,
-                        for: indexPath
-                    ) as? ListChannelsSeriesCell else {
-                        return defaultCell
-                    }
-                    cell.configure(item: item)
-                    return cell
-                } else {
+            switch sectionIndex {
+                case 0:
                     guard let cell = collectionView.dequeueReusableCell(
                         withReuseIdentifier: ListChannelsDefaultCellId,
                         for: indexPath
@@ -224,11 +143,82 @@ final class ListChannelsViewController: UICollectionViewController {
                     }
                     cell.configure(item: item)
                     return cell
-                }
+                case lastSectionIndex:
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: ListChannelsCategoryCellId,
+                        for: indexPath
+                    ) as? ListChannelsCategoryCell else {
+                        return defaultCell
+                    }
+                    cell.configure(item: item)
+                    return cell
+                default:
+                    if section.isSeriesType {
+                        guard let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: ListChannelsSeriesCellId,
+                            for: indexPath
+                        ) as? ListChannelsSeriesCell else {
+                            return defaultCell
+                        }
+                        cell.configure(item: item)
+                        return cell
+                    } else {
+                        guard let cell = collectionView.dequeueReusableCell(
+                            withReuseIdentifier: ListChannelsDefaultCellId,
+                            for: indexPath
+                        ) as? ListChannelsDefaultCell else {
+                            return defaultCell
+                        }
+                        cell.configure(item: item)
+                        return cell
+                    }
             }
         }
 
+//        self.dataSource.supplementaryViewProvider = makeDataSourceSupplementaryView()
+
         return dataSource
+    }
+
+    private func makeDataSourceSupplementaryView() -> DataSourceSupplementaryViewProvider {
+        let supplementaryViewProvider: DataSourceSupplementaryViewProvider = { [unowned self] (collectionView, kind, indexPath) in
+            let defaultHeaderView = UICollectionReusableView()
+            let snapshot = dataSource.snapshot()
+            let sections = snapshot.sectionIdentifiers
+            let sectionIndex = indexPath.section
+
+            guard sectionIndex < sections.count else {
+                return defaultHeaderView
+            }
+
+            let section = sections[sectionIndex]
+            let isFirstSection = sectionIndex == 0
+            let isLastSection = sectionIndex == sections.count - 1
+
+            if isFirstSection || isLastSection {
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: ListChannelsTextHeaderView.headerId,
+                    for: indexPath
+                ) as? ListChannelsTextHeaderView else {
+                    return defaultHeaderView
+                }
+                headerView.configure(section: section, isSeparatorHidden: isFirstSection)
+                return headerView
+            } else {
+                guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: ListChannelsIconTextHeaderView.headerId,
+                    for: indexPath
+                ) as? ListChannelsIconTextHeaderView else {
+                    return defaultHeaderView
+                }
+                headerView.configure(section: section)
+                return headerView
+            }
+        }
+
+        return supplementaryViewProvider
     }
 
     private func resetSnapshot(snapshot: inout Snapshot, newSections: [ListChannels.Section]) {
@@ -270,7 +260,6 @@ extension ListChannelsViewController: ListChannelsDisplayLogic {
         }
 
         dataSource.apply(snapshot, animatingDifferences: false)
-        print("display loaded data")
         collectionView.stopLoading()
     }
 }
@@ -278,13 +267,21 @@ extension ListChannelsViewController: ListChannelsDisplayLogic {
 // MARK: - Programmatic UI Configuration
 private extension ListChannelsViewController {
     func configureUI() {
-        title = "Channels"
 
+        configureNavigationBar()
+        configureCollectionView()
+    }
+
+    func configureNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = Color.screenBackgroundColor
-        appearance.titleTextAttributes = [.foregroundColor: Color.navigationBarTitleColor]
-        appearance.largeTitleTextAttributes = [.foregroundColor: Color.navigationBarTitleColor]
+        appearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: Color.navigationBarTitleColor
+        ]
+        appearance.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: Color.navigationBarTitleColor
+        ]
 
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
@@ -292,6 +289,10 @@ private extension ListChannelsViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
 
+        title = "Channels"
+    }
+
+    func configureCollectionView() {
         collectionView.collectionViewLayout = makeCompositionalLayout()
         collectionView.contentInset.top = 24
         collectionView.backgroundColor = Color.screenBackgroundColor
@@ -299,9 +300,18 @@ private extension ListChannelsViewController {
         collectionView.alwaysBounceHorizontal = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
-        collectionView.register(ListChannelsDefaultCell.self, forCellWithReuseIdentifier: ListChannelsDefaultCellId)
-        collectionView.register(ListChannelsSeriesCell.self, forCellWithReuseIdentifier: ListChannelsSeriesCellId)
-        collectionView.register(ListChannelsCategoryCell.self, forCellWithReuseIdentifier: ListChannelsCategoryCellId)
+        collectionView.register(
+            ListChannelsDefaultCell.self,
+            forCellWithReuseIdentifier: ListChannelsDefaultCellId
+        )
+        collectionView.register(
+            ListChannelsSeriesCell.self,
+            forCellWithReuseIdentifier: ListChannelsSeriesCellId
+        )
+        collectionView.register(
+            ListChannelsCategoryCell.self,
+            forCellWithReuseIdentifier: ListChannelsCategoryCellId
+        )
         collectionView.register(
             ListChannelsTextHeaderView.self,
             forSupplementaryViewOfKind: elementKindSectionHeader,

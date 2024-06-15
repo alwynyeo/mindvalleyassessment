@@ -70,9 +70,16 @@ final class ListChannelsCategoryCell: UICollectionViewCell {
 // MARK: - Programmatic UI Configuration
 private extension ListChannelsCategoryCell {
     func configureUI() {
+        configureContentView()
+        configureTitleLabel()
+    }
+
+    func configureContentView() {
         contentView.backgroundColor = Color.grayBackground
         contentView.layer.cornerRadius = 32
+    }
 
+    func configureTitleLabel() {
         titleLabel.textColor = Color.whiteText
         titleLabel.font = Font.categoryItemTitle
         titleLabel.numberOfLines = 2
@@ -81,12 +88,14 @@ private extension ListChannelsCategoryCell {
 
         contentView.addSubview(titleLabel)
 
-        NSLayoutConstraint.activate([
+        let constraints = [
             titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-        ])
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 }

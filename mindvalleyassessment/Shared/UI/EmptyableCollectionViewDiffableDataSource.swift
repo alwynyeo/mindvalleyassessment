@@ -45,7 +45,7 @@ class EmptyableUICollectionViewDiffableDataSource<SectionIdentifier, ItemIdentif
     }
 }
 
-// MARK: - Programmatic UI Configuration
+// MARK: - Helpers
 private extension EmptyableUICollectionViewDiffableDataSource {
     func addEmptyStateView(emptyStateView: UIView) {
         collectionView.backgroundView = emptyStateView
