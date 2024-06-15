@@ -23,7 +23,7 @@ final class ListChannelInteractor {
 
     var presenter: ListChannelPresentationLogic?
 
-    var worker: ListChannelWorker?
+    var worker: ListChannelWorkerProtocol?
 
     private var newEpisodeData: NewEpisode?
 
@@ -122,7 +122,7 @@ private extension ListChannelInteractor {
     func loadLocalNewEpisodes() {
         localDataDispatchGroup.enter()
 
-        worker?.getLocalNewEpisodes { [weak self] result in
+        worker?.getLocalNewEpisode { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -142,7 +142,7 @@ private extension ListChannelInteractor {
     func loadLocalChannels() {
         localDataDispatchGroup.enter()
 
-        worker?.getLocalChannels { [weak self] result in
+        worker?.getLocalChannel { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -162,7 +162,7 @@ private extension ListChannelInteractor {
     func loadLocalCategories() {
         localDataDispatchGroup.enter()
 
-        worker?.getLocalCategories { [weak self] result in
+        worker?.getLocalCategory { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -185,7 +185,7 @@ private extension ListChannelInteractor {
     func loadCloudNewEpisodes() {
         cloudDataDispatchGroup.enter()
 
-        worker?.getCloudNewEpisodes { [weak self] result in
+        worker?.getCloudNewEpisode { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -205,7 +205,7 @@ private extension ListChannelInteractor {
     func loadCloudChannels() {
         cloudDataDispatchGroup.enter()
 
-        worker?.getCloudChannels { [weak self] result in
+        worker?.getCloudChannel { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -225,7 +225,7 @@ private extension ListChannelInteractor {
     func loadCloudCategories() {
         cloudDataDispatchGroup.enter()
 
-        worker?.getCloudCategories { [weak self] result in
+        worker?.getCloudCategory { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return

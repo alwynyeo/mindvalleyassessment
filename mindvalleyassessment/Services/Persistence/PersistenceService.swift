@@ -104,17 +104,17 @@ final class PersistenceService {
 
 // MARK: - ListChannelServiceProtocol
 extension PersistenceService: ListChannelServiceProtocol {
-    func getNewEpisodes(completion: @escaping (NewEpisodeResultType) -> Void) {
+    func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
         let newEpisode = constructNewEpisode()
         completion(NewEpisodeResultType.success(newEpisode))
     }
 
-    func getChannels(completion: @escaping (ChannelResultType) -> Void) {
+    func getChannel(completion: @escaping (ChannelResultType) -> Void) {
         let channel = constructChannel()
         completion(ChannelResultType.success(channel))
     }
 
-    func getCategories(completion: @escaping (CategoryResultType) -> Void) {
+    func getCategory(completion: @escaping (CategoryResultType) -> Void) {
         let category = constructCategory()
         completion(CategoryResultType.success(category))
     }

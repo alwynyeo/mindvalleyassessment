@@ -27,9 +27,9 @@ final class ListChannelsViewController: UICollectionViewController {
 
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
 
-    private var interactor: ListChannelBusinessLogic?
+    var interactor: ListChannelBusinessLogic?
 
-    private var router: (ListChannelRoutingLogic & ListChannelDataPassing)?
+    var router: (ListChannelRoutingLogic & ListChannelDataPassing)?
 
     private let listChannelDefaultCellId = ListChannelDefaultCell.cellId
 
@@ -156,7 +156,7 @@ final class ListChannelsViewController: UICollectionViewController {
         interactor?.loadData(request: request)
     }
 
-    private func refreshData() {
+    func refreshData() {
         collectionView.startLoading()
 
         let request = ListChannel.RefreshData.Request()
@@ -233,8 +233,8 @@ final class ListChannelsViewController: UICollectionViewController {
 
     private func resetSnapshot(snapshot: inout Snapshot, newSections: [ListChannel.Section]) {
         let currentSections = snapshot.sectionIdentifiers
-//        guard currentSections.isNotEmpty && newSections.isNotEmpty else { return }
-//        snapshot.deleteAllItems()
+        guard currentSections.isNotEmpty && newSections.isNotEmpty else { return }
+        snapshot.deleteAllItems()
     }
 
     private func addRefreshNotificationObserver() {

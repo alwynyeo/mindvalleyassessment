@@ -10,9 +10,19 @@ import Foundation
 
 // MARK: - ListChannelServiceProtocol Protocol
 protocol ListChannelServiceProtocol {
-    func getNewEpisodes(completion: @escaping (NewEpisodeResultType) -> Void)
-    func getChannels(completion: @escaping (ChannelResultType) -> Void)
-    func getCategories(completion: @escaping (CategoryResultType) -> Void)
+    func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
+    func getChannel(completion: @escaping (ChannelResultType) -> Void)
+    func getCategory(completion: @escaping (CategoryResultType) -> Void)
+}
+
+protocol ListChannelWorkerProtocol {
+    func getLocalNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
+    func getLocalChannel(completion: @escaping (ChannelResultType) -> Void)
+    func getLocalCategory(completion: @escaping (CategoryResultType) -> Void)
+
+    func getCloudNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
+    func getCloudChannel(completion: @escaping (ChannelResultType) -> Void)
+    func getCloudCategory(completion: @escaping (CategoryResultType) -> Void)
 }
 
 // MARK: - ListChannelWorker Class
@@ -33,7 +43,7 @@ final class ListChannelWorker {
         self.persistenceService = persistenceService
     }
 
-    // MARK: - Helpers
+    // MARK: - Private Helpers
 
     private func persistNewEpisode(data: NewEpisode) {
         DispatchQueue.main.async {
@@ -52,12 +62,16 @@ final class ListChannelWorker {
             PersistenceService.shared.persist(category: data)
         }
     }
+
+    // MARK: - Helpers
 }
 
-// MARK: - Local Data Related Helpers
-extension ListChannelWorker {
-    func getLocalNewEpisodes(completion: @escaping (NewEpisodeResultType) -> Void) {
-        persistenceService.getNewEpisodes { result in
+// MARK: - ListChannelWorkerProtocol
+extension ListChannelWorker: ListChannelWorkerProtocol {
+    // MARK: Get Local Data Helper
+
+    func getLocalNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
+        persistenceService.getNewEpisode { result in
             switch result {
                 case .success(let data):
                     let result = NewEpisodeResultType.success(data)
@@ -69,8 +83,8 @@ extension ListChannelWorker {
         }
     }
 
-    func getLocalChannels(completion: @escaping (ChannelResultType) -> Void) {
-        persistenceService.getChannels { result in
+    func getLocalChannel(completion: @escaping (ChannelResultType) -> Void) {
+        persistenceService.getChannel { result in
             switch result {
                 case .success(let data):
                     let result = ChannelResultType.success(data)
@@ -82,8 +96,8 @@ extension ListChannelWorker {
         }
     }
 
-    func getLocalCategories(completion: @escaping (CategoryResultType) -> Void) {
-        persistenceService.getCategories { result in
+    func getLocalCategory(completion: @escaping (CategoryResultType) -> Void) {
+        persistenceService.getCategory { result in
             switch result {
                 case .success(let data):
                     let result = CategoryResultType.success(data)
@@ -94,12 +108,11 @@ extension ListChannelWorker {
             }
         }
     }
-}
 
-// MARK: - Cloud Data Related Helpers
-extension ListChannelWorker {
-    func getCloudNewEpisodes(completion: @escaping (NewEpisodeResultType) -> Void) {
-        networkService.getNewEpisodes { [weak self] result in
+    // MARK: Get Cloud Data Helper
+
+    func getCloudNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
+        networkService.getNewEpisode { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -116,8 +129,8 @@ extension ListChannelWorker {
         }
     }
 
-    func getCloudChannels(completion: @escaping (ChannelResultType) -> Void) {
-        networkService.getChannels { [weak self] result in
+    func getCloudChannel(completion: @escaping (ChannelResultType) -> Void) {
+        networkService.getChannel { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return
@@ -134,8 +147,8 @@ extension ListChannelWorker {
         }
     }
 
-    func getCloudCategories(completion: @escaping (CategoryResultType) -> Void) {
-        networkService.getCategories { [weak self] result in
+    func getCloudCategory(completion: @escaping (CategoryResultType) -> Void) {
+        networkService.getCategory { [weak self] result in
             guard let self else {
                 print("self is nil under \(#function) at line \(#line) in \(#fileID) file.")
                 return

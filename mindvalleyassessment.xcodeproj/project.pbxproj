@@ -22,8 +22,9 @@
 		A45B06112C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */; };
 		A45B06132C1C12120081DA38 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06122C1C12120081DA38 /* EmptyStateView.swift */; };
 		A45B06162C1C1CC70081DA38 /* NotificationName+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */; };
-		A45B061A2C1C2F680081DA38 /* ListChannelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06192C1C2F680081DA38 /* ListChannelViewControllerTests.swift */; };
-		A45B061C2C1C5B5A0081DA38 /* ListChannelInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B061B2C1C5B5A0081DA38 /* ListChannelInteractorTests.swift */; };
+		A45B061A2C1C2F680081DA38 /* ListChannelsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06192C1C2F680081DA38 /* ListChannelsViewControllerTests.swift */; };
+		A45B061C2C1C5B5A0081DA38 /* ListChannelsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B061B2C1C5B5A0081DA38 /* ListChannelsInteractorTests.swift */; };
+		A45B06212C1CD35E0081DA38 /* ListChannelsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B06202C1CD35E0081DA38 /* ListChannelsPresenterTests.swift */; };
 		A45F1D7A2C19BCDC006F4A47 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45F1D792C19BCDC006F4A47 /* PersistenceService.swift */; };
 		A4608A912C18686400453455 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4608A902C18686400453455 /* Collection+Extension.swift */; };
 		A4608A942C187CAB00453455 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A4608A932C187CAB00453455 /* Kingfisher */; };
@@ -62,7 +63,6 @@
 		A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4E6834E2C13519F00809BDA /* mindvalleyassessment.xcdatamodeld */; };
 		A4E683522C1351A200809BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E683512C1351A200809BDA /* Assets.xcassets */; };
 		A4E683552C1351A200809BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A4E683542C1351A200809BDA /* Base */; };
-		A4E683602C1351A300809BDA /* mindvalleyassessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6835F2C1351A300809BDA /* mindvalleyassessmentTests.swift */; };
 		A4E6836A2C1351A300809BDA /* mindvalleyassessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */; };
 		A4E6836C2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */; };
 		A4E683902C13611F00809BDA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6838F2C13611F00809BDA /* UIColor+Extension.swift */; };
@@ -107,8 +107,9 @@
 		A45B06102C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyableCollectionViewDiffableDataSource.swift; sourceTree = "<group>"; };
 		A45B06122C1C12120081DA38 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		A45B06152C1C1CC70081DA38 /* NotificationName+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Constant.swift"; sourceTree = "<group>"; };
-		A45B06192C1C2F680081DA38 /* ListChannelViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelViewControllerTests.swift; sourceTree = "<group>"; };
-		A45B061B2C1C5B5A0081DA38 /* ListChannelInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelInteractorTests.swift; sourceTree = "<group>"; };
+		A45B06192C1C2F680081DA38 /* ListChannelsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsViewControllerTests.swift; sourceTree = "<group>"; };
+		A45B061B2C1C5B5A0081DA38 /* ListChannelsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsInteractorTests.swift; sourceTree = "<group>"; };
+		A45B06202C1CD35E0081DA38 /* ListChannelsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsPresenterTests.swift; sourceTree = "<group>"; };
 		A45F1D792C19BCDC006F4A47 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		A4608A902C18686400453455 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		A4608A952C187EBB00453455 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -149,7 +150,6 @@
 		A4E683542C1351A200809BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4E683562C1351A200809BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E6835B2C1351A300809BDA /* mindvalleyassessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindvalleyassessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4E6835F2C1351A300809BDA /* mindvalleyassessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentTests.swift; sourceTree = "<group>"; };
 		A4E683652C1351A300809BDA /* mindvalleyassessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindvalleyassessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentUITests.swift; sourceTree = "<group>"; };
 		A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mindvalleyassessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -231,18 +231,19 @@
 		A45B06172C1C2F050081DA38 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				A45B06182C1C2F120081DA38 /* ListChannel */,
+				A45B06182C1C2F120081DA38 /* ListChannels */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		A45B06182C1C2F120081DA38 /* ListChannel */ = {
+		A45B06182C1C2F120081DA38 /* ListChannels */ = {
 			isa = PBXGroup;
 			children = (
-				A45B06192C1C2F680081DA38 /* ListChannelViewControllerTests.swift */,
-				A45B061B2C1C5B5A0081DA38 /* ListChannelInteractorTests.swift */,
+				A45B06192C1C2F680081DA38 /* ListChannelsViewControllerTests.swift */,
+				A45B061B2C1C5B5A0081DA38 /* ListChannelsInteractorTests.swift */,
+				A45B06202C1CD35E0081DA38 /* ListChannelsPresenterTests.swift */,
 			);
-			path = ListChannel;
+			path = ListChannels;
 			sourceTree = "<group>";
 		};
 		A45F1D772C19A5FA006F4A47 /* Enums */ = {
@@ -467,7 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				A45B06172C1C2F050081DA38 /* Scene */,
-				A4E6835F2C1351A300809BDA /* mindvalleyassessmentTests.swift */,
 			);
 			path = mindvalleyassessmentTests;
 			sourceTree = "<group>";
@@ -758,9 +758,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A45B061A2C1C2F680081DA38 /* ListChannelViewControllerTests.swift in Sources */,
-				A4E683602C1351A300809BDA /* mindvalleyassessmentTests.swift in Sources */,
-				A45B061C2C1C5B5A0081DA38 /* ListChannelInteractorTests.swift in Sources */,
+				A45B06212C1CD35E0081DA38 /* ListChannelsPresenterTests.swift in Sources */,
+				A45B061A2C1C2F680081DA38 /* ListChannelsViewControllerTests.swift in Sources */,
+				A45B061C2C1C5B5A0081DA38 /* ListChannelsInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

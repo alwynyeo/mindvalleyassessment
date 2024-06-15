@@ -44,7 +44,7 @@ final class NetworkService {
 
 // MARK: - ListChannelServiceProtocol
 extension NetworkService: ListChannelServiceProtocol {
-    func getNewEpisodes(completion: @escaping (NewEpisodeResultType) -> Void) {
+    func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
         urlComponents.path = "/raw/z5AExTtw"
 
         guard let url = urlComponents.url else {
@@ -97,7 +97,7 @@ extension NetworkService: ListChannelServiceProtocol {
         task.resume()
     }
 
-    func getChannels(completion: @escaping (ChannelResultType) -> Void) {
+    func getChannel(completion: @escaping (ChannelResultType) -> Void) {
         urlComponents.path = "/raw/Xt12uVhM"
 
         guard let url = urlComponents.url else {
@@ -150,7 +150,7 @@ extension NetworkService: ListChannelServiceProtocol {
         task.resume()
     }
 
-    func getCategories(completion: @escaping (CategoryResultType) -> Void) {
+    func getCategory(completion: @escaping (CategoryResultType) -> Void) {
         urlComponents.path = "/raw/A0CgArX3"
 
         guard let url = urlComponents.url else {
