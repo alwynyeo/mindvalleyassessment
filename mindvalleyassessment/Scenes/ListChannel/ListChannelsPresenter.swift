@@ -1,5 +1,5 @@
 //
-//  ListChannelPresenter.swift
+//  ListChannelsPresenter.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -8,23 +8,23 @@
 
 import Foundation
 
-// MARK: - ListChannelPresentationLogic Protocol
-protocol ListChannelPresentationLogic {
-    func presentLoadedData(response: ListChannel.LoadData.Response)
+// MARK: - ListChannelsPresentationLogic Protocol
+protocol ListChannelsPresentationLogic {
+    func presentLoadedData(response: ListChannels.LoadData.Response)
 }
 
-// MARK: - ListChannelPresenter Class
-final class ListChannelPresenter {
+// MARK: - ListChannelsPresenter Class
+final class ListChannelsPresenter {
     // MARK: - Declarations
 
-    weak var viewController: ListChannelDisplayLogic?
+    weak var viewController: ListChannelsDisplayLogic?
 
     // MARK: - Object Lifecycle
 
     init() {}
 
     // MARK: - Helpers
-    private func getNewEpisodeSections(from response: ListChannel.LoadData.Response) -> [ListChannel.Section] {
+    private func getNewEpisodeSections(from response: ListChannels.LoadData.Response) -> [ListChannels.Section] {
         let newEpisodeData = response.newEpisodeData
 
         guard let data = newEpisodeData?.data else { return [] }
@@ -37,20 +37,20 @@ final class ListChannelPresenter {
 
         let sectionTitle = "New Episodes"
 
-        let sectionItems = prefixedNewEpisodes.map { newEpisode -> ListChannel.Section.Item in
+        let sectionItems = prefixedNewEpisodes.map { newEpisode -> ListChannels.Section.Item in
             let imageUrlString = newEpisode.coverAsset?.url ?? ""
             let imageUrl = URL(string: imageUrlString)
             let title = newEpisode.title ?? ""
             let subTitle = newEpisode.channel?.title ?? ""
 
-            return ListChannel.Section.Item(
+            return ListChannels.Section.Item(
                 imageUrl: imageUrl,
                 title: title,
                 subTitle: subTitle
             )
         }
 
-        let section = ListChannel.Section(
+        let section = ListChannels.Section(
             title: sectionTitle,
             items: sectionItems
         )
@@ -58,7 +58,7 @@ final class ListChannelPresenter {
         return [section]
     }
 
-    private func getChannelSections(from response: ListChannel.LoadData.Response) -> [ListChannel.Section] {
+    private func getChannelSections(from response: ListChannels.LoadData.Response) -> [ListChannels.Section] {
         let channelData = response.channelData
 
         guard let data = channelData?.data else { return [] }
@@ -67,7 +67,7 @@ final class ListChannelPresenter {
 
         guard channels.isNotEmpty else { return [] }
 
-        let sections = channels.map { channel -> ListChannel.Section in
+        let sections = channels.map { channel -> ListChannels.Section in
             let sectionImageUrlString = channel.coverAsset?.url ?? ""
             let sectionImageUrl = URL(string: sectionImageUrlString)
             let sectionTitle = channel.title ?? ""
@@ -81,18 +81,18 @@ final class ListChannelPresenter {
 
             let latestMedia = channel.latestMedia ?? []
             let prefixedLatestMedia = latestMedia.prefix(6)
-            let sectionItems = prefixedLatestMedia.map { latestMedia -> ListChannel.Section.Item in
+            let sectionItems = prefixedLatestMedia.map { latestMedia -> ListChannels.Section.Item in
                 let imageUrlString = latestMedia.coverAsset?.url ?? ""
                 let imageUrl = URL(string: imageUrlString)
                 let title = latestMedia.title ?? ""
-                let sectionItem = ListChannel.Section.Item(
+                let sectionItem = ListChannels.Section.Item(
                     imageUrl: imageUrl,
                     title: title
                 )
                 return sectionItem
             }
 
-            let section = ListChannel.Section(
+            let section = ListChannels.Section(
                 imageUrl: sectionImageUrl,
                 title: sectionTitle,
                 subTitle: sectionSubTitle,
@@ -106,7 +106,7 @@ final class ListChannelPresenter {
         return sections
     }
 
-    private func getCategorySections(from response: ListChannel.LoadData.Response) -> [ListChannel.Section] {
+    private func getCategorySections(from response: ListChannels.LoadData.Response) -> [ListChannels.Section] {
         let categoryData = response.categoryData
 
         guard let data = categoryData?.data else { return [] }
@@ -117,13 +117,13 @@ final class ListChannelPresenter {
 
         let sectionTitle = "Browse by categories"
 
-        let sectionItems = categories.map { category -> ListChannel.Section.Item in
+        let sectionItems = categories.map { category -> ListChannels.Section.Item in
             let name = category.name ?? ""
-            let item = ListChannel.Section.Item(title: name)
+            let item = ListChannels.Section.Item(title: name)
             return item
         }
 
-        let section = ListChannel.Section(
+        let section = ListChannels.Section(
             title: sectionTitle,
             items: sectionItems
         )
@@ -132,16 +132,16 @@ final class ListChannelPresenter {
     }
 }
 
-// MARK: - ListChannelPresentationLogic Extension
-extension ListChannelPresenter: ListChannelPresentationLogic {
-    func presentLoadedData(response: ListChannel.LoadData.Response) {
+// MARK: - ListChannelsPresentationLogic Extension
+extension ListChannelsPresenter: ListChannelsPresentationLogic {
+    func presentLoadedData(response: ListChannels.LoadData.Response) {
         let newEpisodeSections = getNewEpisodeSections(from: response)
         let channelSections = getChannelSections(from: response)
         let categorySections = getCategorySections(from: response)
 
         let sections = newEpisodeSections + channelSections + categorySections
 
-        let viewModel = ListChannel.LoadData.ViewModel(sections: sections)
+        let viewModel = ListChannels.LoadData.ViewModel(sections: sections)
 
         viewController?.displayLoadedData(viewModel: viewModel)
     }

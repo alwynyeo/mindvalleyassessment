@@ -1,5 +1,5 @@
 //
-//  ChannelNetworkService.swift
+//  ChannelsNetworkService.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -42,8 +42,8 @@ final class NetworkService {
     }
 }
 
-// MARK: - ListChannelServiceProtocol
-extension NetworkService: ListChannelServiceProtocol {
+// MARK: - ListChannelsServiceProtocol
+extension NetworkService: ListChannelsServiceProtocol {
     func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
         urlComponents.path = "/raw/z5AExTtw"
 

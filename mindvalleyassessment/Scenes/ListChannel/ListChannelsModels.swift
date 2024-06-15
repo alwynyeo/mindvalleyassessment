@@ -1,5 +1,5 @@
 //
-//  ListChannelModels.swift
+//  ListChannelsModels.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-// MARK: - ListChannel Enum
-enum ListChannel {
+// MARK: - ListChannels Enum
+enum ListChannels {
     enum LoadData {
         struct Request {}
 

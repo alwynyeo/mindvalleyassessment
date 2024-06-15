@@ -1,5 +1,5 @@
 //
-//  ListChannelWorker.swift
+//  ListChannelsWorker.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-// MARK: - ListChannelServiceProtocol Protocol
-protocol ListChannelServiceProtocol {
+// MARK: - ListChannelsServiceProtocol Protocol
+protocol ListChannelsServiceProtocol {
     func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
     func getChannel(completion: @escaping (ChannelResultType) -> Void)
     func getCategory(completion: @escaping (CategoryResultType) -> Void)
 }
 
-protocol ListChannelWorkerProtocol {
+protocol ListChannelsWorkerProtocol {
     func getLocalNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
     func getLocalChannel(completion: @escaping (ChannelResultType) -> Void)
     func getLocalCategory(completion: @escaping (CategoryResultType) -> Void)
@@ -25,19 +25,19 @@ protocol ListChannelWorkerProtocol {
     func getCloudCategory(completion: @escaping (CategoryResultType) -> Void)
 }
 
-// MARK: - ListChannelWorker Class
-final class ListChannelWorker {
+// MARK: - ListChannelsWorker Class
+final class ListChannelsWorker {
     // MARK: - Declarations
 
-    private let networkService: ListChannelServiceProtocol
+    private let networkService: ListChannelsServiceProtocol
 
-    private let persistenceService: ListChannelServiceProtocol
+    private let persistenceService: ListChannelsServiceProtocol
 
     // MARK: - Object Lifecycle
 
     init(
-        networkService: ListChannelServiceProtocol,
-        persistenceService: ListChannelServiceProtocol
+        networkService: ListChannelsServiceProtocol,
+        persistenceService: ListChannelsServiceProtocol
     ) {
         self.networkService = networkService
         self.persistenceService = persistenceService
@@ -66,8 +66,8 @@ final class ListChannelWorker {
     // MARK: - Helpers
 }
 
-// MARK: - ListChannelWorkerProtocol
-extension ListChannelWorker: ListChannelWorkerProtocol {
+// MARK: - ListChannelsWorkerProtocol
+extension ListChannelsWorker: ListChannelsWorkerProtocol {
     // MARK: Get Local Data Helper
 
     func getLocalNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {

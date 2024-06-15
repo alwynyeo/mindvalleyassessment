@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1852C1616FC00CDEDF3 /* ListChannelPresenter.swift */; };
-		A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1862C1616FC00CDEDF3 /* ListChannelWorker.swift */; };
-		A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1872C1616FC00CDEDF3 /* ListChannelRouter.swift */; };
-		A409A18E2C1616FC00CDEDF3 /* ListChannelModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1882C1616FC00CDEDF3 /* ListChannelModels.swift */; };
-		A409A18F2C1616FC00CDEDF3 /* ListChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1892C1616FC00CDEDF3 /* ListChannelViewController.swift */; };
-		A409A1902C1616FC00CDEDF3 /* ListChannelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */; };
-		A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */; };
-		A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */; };
+		A409A18B2C1616FC00CDEDF3 /* ListChannelsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1852C1616FC00CDEDF3 /* ListChannelsPresenter.swift */; };
+		A409A18C2C1616FC00CDEDF3 /* ListChannelsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1862C1616FC00CDEDF3 /* ListChannelsWorker.swift */; };
+		A409A18D2C1616FC00CDEDF3 /* ListChannelsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1872C1616FC00CDEDF3 /* ListChannelsRouter.swift */; };
+		A409A18E2C1616FC00CDEDF3 /* ListChannelsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1882C1616FC00CDEDF3 /* ListChannelsModels.swift */; };
+		A409A18F2C1616FC00CDEDF3 /* ListChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1892C1616FC00CDEDF3 /* ListChannelsViewController.swift */; };
+		A409A1902C1616FC00CDEDF3 /* ListChannelsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A18A2C1616FC00CDEDF3 /* ListChannelsInteractor.swift */; };
+		A409A1922C16244C00CDEDF3 /* ListChannelsSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1912C16244C00CDEDF3 /* ListChannelsSeriesCell.swift */; };
+		A409A1942C162DAD00CDEDF3 /* ListChannelsCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409A1932C162DAD00CDEDF3 /* ListChannelsCategoryCell.swift */; };
 		A42318BF2C1B92800030A354 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42318BE2C1B92800030A354 /* UIFont+Extension.swift */; };
 		A42318C12C1B93070030A354 /* Font+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42318C02C1B93070030A354 /* Font+Constant.swift */; };
 		A42318C42C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */; };
@@ -69,9 +69,9 @@
 		A4E683922C137A8300809BDA /* NewEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683912C137A8300809BDA /* NewEpisode.swift */; };
 		A4E683942C137AAA00809BDA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683932C137AAA00809BDA /* Channel.swift */; };
 		A4E683962C137AB100809BDA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683952C137AB100809BDA /* Category.swift */; };
-		A4E683A92C1395C700809BDA /* ListChannelDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683A82C1395C700809BDA /* ListChannelDefaultCell.swift */; };
-		A4FD68DE2C14602300571D8F /* ListChannelTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD68DD2C14602200571D8F /* ListChannelTextHeaderView.swift */; };
-		A4FD68E02C14641500571D8F /* ListChannelIconTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD68DF2C14641500571D8F /* ListChannelIconTextHeaderView.swift */; };
+		A4E683A92C1395C700809BDA /* ListChannelsDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683A82C1395C700809BDA /* ListChannelsDefaultCell.swift */; };
+		A4FD68DE2C14602300571D8F /* ListChannelsTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD68DD2C14602200571D8F /* ListChannelsTextHeaderView.swift */; };
+		A4FD68E02C14641500571D8F /* ListChannelsIconTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FD68DF2C14641500571D8F /* ListChannelsIconTextHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,14 +92,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A409A1852C1616FC00CDEDF3 /* ListChannelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelPresenter.swift; sourceTree = "<group>"; };
-		A409A1862C1616FC00CDEDF3 /* ListChannelWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelWorker.swift; sourceTree = "<group>"; };
-		A409A1872C1616FC00CDEDF3 /* ListChannelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelRouter.swift; sourceTree = "<group>"; };
-		A409A1882C1616FC00CDEDF3 /* ListChannelModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelModels.swift; sourceTree = "<group>"; };
-		A409A1892C1616FC00CDEDF3 /* ListChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelViewController.swift; sourceTree = "<group>"; };
-		A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelInteractor.swift; sourceTree = "<group>"; };
-		A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelSeriesCell.swift; sourceTree = "<group>"; };
-		A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelCategoryCell.swift; sourceTree = "<group>"; };
+		A409A1852C1616FC00CDEDF3 /* ListChannelsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsPresenter.swift; sourceTree = "<group>"; };
+		A409A1862C1616FC00CDEDF3 /* ListChannelsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsWorker.swift; sourceTree = "<group>"; };
+		A409A1872C1616FC00CDEDF3 /* ListChannelsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsRouter.swift; sourceTree = "<group>"; };
+		A409A1882C1616FC00CDEDF3 /* ListChannelsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsModels.swift; sourceTree = "<group>"; };
+		A409A1892C1616FC00CDEDF3 /* ListChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsViewController.swift; sourceTree = "<group>"; };
+		A409A18A2C1616FC00CDEDF3 /* ListChannelsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsInteractor.swift; sourceTree = "<group>"; };
+		A409A1912C16244C00CDEDF3 /* ListChannelsSeriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsSeriesCell.swift; sourceTree = "<group>"; };
+		A409A1932C162DAD00CDEDF3 /* ListChannelsCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsCategoryCell.swift; sourceTree = "<group>"; };
 		A42318BE2C1B92800030A354 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		A42318C02C1B93070030A354 /* Font+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Constant.swift"; sourceTree = "<group>"; };
 		A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFontDescriptorAttributeName+Extension.swift"; sourceTree = "<group>"; };
@@ -157,9 +157,9 @@
 		A4E683912C137A8300809BDA /* NewEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEpisode.swift; sourceTree = "<group>"; };
 		A4E683932C137AAA00809BDA /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		A4E683952C137AB100809BDA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		A4E683A82C1395C700809BDA /* ListChannelDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelDefaultCell.swift; sourceTree = "<group>"; };
-		A4FD68DD2C14602200571D8F /* ListChannelTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelTextHeaderView.swift; sourceTree = "<group>"; };
-		A4FD68DF2C14641500571D8F /* ListChannelIconTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelIconTextHeaderView.swift; sourceTree = "<group>"; };
+		A4E683A82C1395C700809BDA /* ListChannelsDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsDefaultCell.swift; sourceTree = "<group>"; };
+		A4FD68DD2C14602200571D8F /* ListChannelsTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsTextHeaderView.swift; sourceTree = "<group>"; };
+		A4FD68DF2C14641500571D8F /* ListChannelsIconTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChannelsIconTextHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,12 +192,12 @@
 			isa = PBXGroup;
 			children = (
 				A4E683A62C13959600809BDA /* UI */,
-				A409A1852C1616FC00CDEDF3 /* ListChannelPresenter.swift */,
-				A409A1862C1616FC00CDEDF3 /* ListChannelWorker.swift */,
-				A409A1872C1616FC00CDEDF3 /* ListChannelRouter.swift */,
-				A409A1882C1616FC00CDEDF3 /* ListChannelModels.swift */,
-				A409A1892C1616FC00CDEDF3 /* ListChannelViewController.swift */,
-				A409A18A2C1616FC00CDEDF3 /* ListChannelInteractor.swift */,
+				A409A1852C1616FC00CDEDF3 /* ListChannelsPresenter.swift */,
+				A409A1862C1616FC00CDEDF3 /* ListChannelsWorker.swift */,
+				A409A1872C1616FC00CDEDF3 /* ListChannelsRouter.swift */,
+				A409A1882C1616FC00CDEDF3 /* ListChannelsModels.swift */,
+				A409A1892C1616FC00CDEDF3 /* ListChannelsViewController.swift */,
+				A409A18A2C1616FC00CDEDF3 /* ListChannelsInteractor.swift */,
 			);
 			path = ListChannel;
 			sourceTree = "<group>";
@@ -542,9 +542,9 @@
 		A4E683A72C1395A000809BDA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A4E683A82C1395C700809BDA /* ListChannelDefaultCell.swift */,
-				A409A1912C16244C00CDEDF3 /* ListChannelSeriesCell.swift */,
-				A409A1932C162DAD00CDEDF3 /* ListChannelCategoryCell.swift */,
+				A4E683A82C1395C700809BDA /* ListChannelsDefaultCell.swift */,
+				A409A1912C16244C00CDEDF3 /* ListChannelsSeriesCell.swift */,
+				A409A1932C162DAD00CDEDF3 /* ListChannelsCategoryCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -552,8 +552,8 @@
 		A4FD68DC2C145FCA00571D8F /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				A4FD68DD2C14602200571D8F /* ListChannelTextHeaderView.swift */,
-				A4FD68DF2C14641500571D8F /* ListChannelIconTextHeaderView.swift */,
+				A4FD68DD2C14602200571D8F /* ListChannelsTextHeaderView.swift */,
+				A4FD68DF2C14641500571D8F /* ListChannelsIconTextHeaderView.swift */,
 			);
 			path = HeaderView;
 			sourceTree = "<group>";
@@ -711,26 +711,26 @@
 				A42318C12C1B93070030A354 /* Font+Constant.swift in Sources */,
 				A49C73B02C1755CF00D4DB6A /* GlobalTypealiases.swift in Sources */,
 				A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */,
-				A4FD68E02C14641500571D8F /* ListChannelIconTextHeaderView.swift in Sources */,
+				A4FD68E02C14641500571D8F /* ListChannelsIconTextHeaderView.swift in Sources */,
 				A47D4DC12C1B5DEE0086BC93 /* UIApplication+Extension.swift in Sources */,
-				A4E683A92C1395C700809BDA /* ListChannelDefaultCell.swift in Sources */,
+				A4E683A92C1395C700809BDA /* ListChannelsDefaultCell.swift in Sources */,
 				A45B06162C1C1CC70081DA38 /* NotificationName+Constant.swift in Sources */,
-				A409A1942C162DAD00CDEDF3 /* ListChannelCategoryCell.swift in Sources */,
+				A409A1942C162DAD00CDEDF3 /* ListChannelsCategoryCell.swift in Sources */,
 				A45F1D7A2C19BCDC006F4A47 /* PersistenceService.swift in Sources */,
-				A409A18B2C1616FC00CDEDF3 /* ListChannelPresenter.swift in Sources */,
+				A409A18B2C1616FC00CDEDF3 /* ListChannelsPresenter.swift in Sources */,
 				A42318C42C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift in Sources */,
-				A409A18C2C1616FC00CDEDF3 /* ListChannelWorker.swift in Sources */,
+				A409A18C2C1616FC00CDEDF3 /* ListChannelsWorker.swift in Sources */,
 				A47D4DBC2C1B52D30086BC93 /* UIView+ActivityIndicator+Extension.swift in Sources */,
 				A45B06112C1BFFE70081DA38 /* EmptyableCollectionViewDiffableDataSource.swift in Sources */,
-				A409A1922C16244C00CDEDF3 /* ListChannelSeriesCell.swift in Sources */,
+				A409A1922C16244C00CDEDF3 /* ListChannelsSeriesCell.swift in Sources */,
 				A4608A912C18686400453455 /* Collection+Extension.swift in Sources */,
-				A409A18D2C1616FC00CDEDF3 /* ListChannelRouter.swift in Sources */,
+				A409A18D2C1616FC00CDEDF3 /* ListChannelsRouter.swift in Sources */,
 				A4608A962C187EBB00453455 /* UIImageView+Extension.swift in Sources */,
 				A47D4DC42C1B84E90086BC93 /* UIView+Animation+Extension.swift in Sources */,
-				A409A18E2C1616FC00CDEDF3 /* ListChannelModels.swift in Sources */,
-				A409A18F2C1616FC00CDEDF3 /* ListChannelViewController.swift in Sources */,
+				A409A18E2C1616FC00CDEDF3 /* ListChannelsModels.swift in Sources */,
+				A409A18F2C1616FC00CDEDF3 /* ListChannelsViewController.swift in Sources */,
 				A49C73B22C17567E00D4DB6A /* NetworkService.swift in Sources */,
-				A409A1902C1616FC00CDEDF3 /* ListChannelInteractor.swift in Sources */,
+				A409A1902C1616FC00CDEDF3 /* ListChannelsInteractor.swift in Sources */,
 				A4E683922C137A8300809BDA /* NewEpisode.swift in Sources */,
 				A42318BF2C1B92800030A354 /* UIFont+Extension.swift in Sources */,
 				A47D4DB72C1AF4070086BC93 /* ChannelEntity+CoreDataClass.swift in Sources */,
@@ -739,7 +739,7 @@
 				A47D4DBA2C1AF4070086BC93 /* ChannelSubEntity+CoreDataProperties.swift in Sources */,
 				A4E683942C137AAA00809BDA /* Channel.swift in Sources */,
 				A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */,
-				A4FD68DE2C14602300571D8F /* ListChannelTextHeaderView.swift in Sources */,
+				A4FD68DE2C14602300571D8F /* ListChannelsTextHeaderView.swift in Sources */,
 				A4E683902C13611F00809BDA /* UIColor+Extension.swift in Sources */,
 				A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */,
 				A49C73A22C17433200D4DB6A /* Error+Enum.swift in Sources */,

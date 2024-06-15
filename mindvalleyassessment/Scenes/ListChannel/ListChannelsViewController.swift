@@ -8,9 +8,9 @@
 
 import UIKit
 
-// MARK: - ListChannelDisplayLogic Protocol
-protocol ListChannelDisplayLogic: AnyObject {
-    func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel)
+// MARK: - ListChannelsDisplayLogic Protocol
+protocol ListChannelsDisplayLogic: AnyObject {
+    func displayLoadedData(viewModel: ListChannels.LoadData.ViewModel)
 }
 
 // MARK: - ListChannelsViewController Class
@@ -19,23 +19,23 @@ final class ListChannelsViewController: UICollectionViewController {
 
     typealias CompositionalLayout = UICollectionViewCompositionalLayout
 
-    typealias Section = ListChannel.Section
+    typealias Section = ListChannels.Section
 
-    typealias Item = ListChannel.Section.Item
+    typealias Item = ListChannels.Section.Item
 
     typealias DataSource = EmptyableUICollectionViewDiffableDataSource<Section, Item>
 
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
 
-    var interactor: ListChannelBusinessLogic?
+    var interactor: ListChannelsBusinessLogic?
 
-    var router: (ListChannelRoutingLogic & ListChannelDataPassing)?
+    var router: (ListChannelsRoutingLogic & ListChannelsDataPassing)?
 
-    private let listChannelDefaultCellId = ListChannelDefaultCell.cellId
+    private let ListChannelsDefaultCellId = ListChannelsDefaultCell.cellId
 
-    private let listChannelSeriesCellId = ListChannelSeriesCell.cellId
+    private let ListChannelsSeriesCellId = ListChannelsSeriesCell.cellId
 
-    private let listChannelCategoryCellId = ListChannelCategoryCell.cellId
+    private let ListChannelsCategoryCellId = ListChannelsCategoryCell.cellId
 
     private let elementKindSectionHeader = UICollectionView.elementKindSectionHeader
 
@@ -90,9 +90,9 @@ final class ListChannelsViewController: UICollectionViewController {
             if isFirstSection {
                 guard let headerView = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
-                    withReuseIdentifier: ListChannelTextHeaderView.headerId,
+                    withReuseIdentifier: ListChannelsTextHeaderView.headerId,
                     for: indexPath
-                ) as? ListChannelTextHeaderView else {
+                ) as? ListChannelsTextHeaderView else {
                     return defaultHeaderView
                 }
                 headerView.configure(section: section, isSeparatorHidden: true)
@@ -100,9 +100,9 @@ final class ListChannelsViewController: UICollectionViewController {
             } else if isLastSection {
                 guard let headerView = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
-                    withReuseIdentifier: ListChannelTextHeaderView.headerId,
+                    withReuseIdentifier: ListChannelsTextHeaderView.headerId,
                     for: indexPath
-                ) as? ListChannelTextHeaderView else {
+                ) as? ListChannelsTextHeaderView else {
                     return defaultHeaderView
                 }
                 headerView.configure(section: section)
@@ -110,9 +110,9 @@ final class ListChannelsViewController: UICollectionViewController {
             } else {
                 guard let headerView = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
-                    withReuseIdentifier: ListChannelIconTextHeaderView.headerId,
+                    withReuseIdentifier: ListChannelsIconTextHeaderView.headerId,
                     for: indexPath
-                ) as? ListChannelIconTextHeaderView else {
+                ) as? ListChannelsIconTextHeaderView else {
                     return defaultHeaderView
                 }
                 headerView.configure(section: section)
@@ -133,9 +133,9 @@ final class ListChannelsViewController: UICollectionViewController {
 
     private func setUp() {
         let viewController = self
-        let interactor = ListChannelInteractor()
-        let presenter = ListChannelPresenter()
-        let router = ListChannelRouter()
+        let interactor = ListChannelsInteractor()
+        let presenter = ListChannelsPresenter()
+        let router = ListChannelsRouter()
 
         viewController.interactor = interactor
         viewController.router = router
@@ -152,14 +152,14 @@ final class ListChannelsViewController: UICollectionViewController {
     private func loadData() {
         collectionView.startLoading()
 
-        let request = ListChannel.LoadData.Request()
+        let request = ListChannels.LoadData.Request()
         interactor?.loadData(request: request)
     }
 
     func refreshData() {
         collectionView.startLoading()
 
-        let request = ListChannel.RefreshData.Request()
+        let request = ListChannels.RefreshData.Request()
         interactor?.refreshData(request: request)
     }
 
@@ -189,18 +189,18 @@ final class ListChannelsViewController: UICollectionViewController {
 
             if isFirstSection {
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: listChannelDefaultCellId,
+                    withReuseIdentifier: ListChannelsDefaultCellId,
                     for: indexPath
-                ) as? ListChannelDefaultCell else {
+                ) as? ListChannelsDefaultCell else {
                     return defaultCell
                 }
                 cell.configure(item: item)
                 return cell
             } else if isLastSection {
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: listChannelCategoryCellId,
+                    withReuseIdentifier: ListChannelsCategoryCellId,
                     for: indexPath
-                ) as? ListChannelCategoryCell else {
+                ) as? ListChannelsCategoryCell else {
                     return defaultCell
                 }
                 cell.configure(item: item)
@@ -208,18 +208,18 @@ final class ListChannelsViewController: UICollectionViewController {
             } else {
                 if isSectionSeriesType {
                     guard let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: listChannelSeriesCellId,
+                        withReuseIdentifier: ListChannelsSeriesCellId,
                         for: indexPath
-                    ) as? ListChannelSeriesCell else {
+                    ) as? ListChannelsSeriesCell else {
                         return defaultCell
                     }
                     cell.configure(item: item)
                     return cell
                 } else {
                     guard let cell = collectionView.dequeueReusableCell(
-                        withReuseIdentifier: listChannelDefaultCellId,
+                        withReuseIdentifier: ListChannelsDefaultCellId,
                         for: indexPath
-                    ) as? ListChannelDefaultCell else {
+                    ) as? ListChannelsDefaultCell else {
                         return defaultCell
                     }
                     cell.configure(item: item)
@@ -231,7 +231,7 @@ final class ListChannelsViewController: UICollectionViewController {
         return dataSource
     }
 
-    private func resetSnapshot(snapshot: inout Snapshot, newSections: [ListChannel.Section]) {
+    private func resetSnapshot(snapshot: inout Snapshot, newSections: [ListChannels.Section]) {
         let currentSections = snapshot.sectionIdentifiers
         guard currentSections.isNotEmpty && newSections.isNotEmpty else { return }
         snapshot.deleteAllItems()
@@ -254,9 +254,9 @@ final class ListChannelsViewController: UICollectionViewController {
     }
 }
 
-// MARK: - ListChannelDisplayLogic Extension
-extension ListChannelsViewController: ListChannelDisplayLogic {
-    func displayLoadedData(viewModel: ListChannel.LoadData.ViewModel) {
+// MARK: - ListChannelsDisplayLogic Extension
+extension ListChannelsViewController: ListChannelsDisplayLogic {
+    func displayLoadedData(viewModel: ListChannels.LoadData.ViewModel) {
         var snapshot = dataSource.snapshot()
         let newSections = viewModel.sections
 
@@ -299,18 +299,18 @@ private extension ListChannelsViewController {
         collectionView.alwaysBounceHorizontal = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = true
-        collectionView.register(ListChannelDefaultCell.self, forCellWithReuseIdentifier: listChannelDefaultCellId)
-        collectionView.register(ListChannelSeriesCell.self, forCellWithReuseIdentifier: listChannelSeriesCellId)
-        collectionView.register(ListChannelCategoryCell.self, forCellWithReuseIdentifier: listChannelCategoryCellId)
+        collectionView.register(ListChannelsDefaultCell.self, forCellWithReuseIdentifier: ListChannelsDefaultCellId)
+        collectionView.register(ListChannelsSeriesCell.self, forCellWithReuseIdentifier: ListChannelsSeriesCellId)
+        collectionView.register(ListChannelsCategoryCell.self, forCellWithReuseIdentifier: ListChannelsCategoryCellId)
         collectionView.register(
-            ListChannelTextHeaderView.self,
+            ListChannelsTextHeaderView.self,
             forSupplementaryViewOfKind: elementKindSectionHeader,
-            withReuseIdentifier: ListChannelTextHeaderView.headerId
+            withReuseIdentifier: ListChannelsTextHeaderView.headerId
         )
         collectionView.register(
-            ListChannelIconTextHeaderView.self,
+            ListChannelsIconTextHeaderView.self,
             forSupplementaryViewOfKind: elementKindSectionHeader,
-            withReuseIdentifier: ListChannelIconTextHeaderView.headerId
+            withReuseIdentifier: ListChannelsIconTextHeaderView.headerId
         )
     }
 

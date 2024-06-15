@@ -1,5 +1,5 @@
 //
-//  ListChannelInteractor.swift
+//  ListChannelsInteractor.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -8,22 +8,22 @@
 
 import Foundation
 
-// MARK: - ListChannelBusinessLogic Protocol
-protocol ListChannelBusinessLogic {
-    func loadData(request: ListChannel.LoadData.Request)
-    func refreshData(request: ListChannel.RefreshData.Request)
+// MARK: - ListChannelsBusinessLogic Protocol
+protocol ListChannelsBusinessLogic {
+    func loadData(request: ListChannels.LoadData.Request)
+    func refreshData(request: ListChannels.RefreshData.Request)
 }
 
-// MARK: - ListChannelDataStore Protocol
-protocol ListChannelDataStore {}
+// MARK: - ListChannelsDataStore Protocol
+protocol ListChannelsDataStore {}
 
-// MARK: - ListChannelInteractor Class
-final class ListChannelInteractor {
+// MARK: - ListChannelsInteractor Class
+final class ListChannelsInteractor {
     // MARK: - Declarations
 
-    var presenter: ListChannelPresentationLogic?
+    var presenter: ListChannelsPresentationLogic?
 
-    var worker: ListChannelWorkerProtocol?
+    var worker: ListChannelsWorkerProtocol?
 
     private var newEpisodeData: NewEpisode?
 
@@ -40,7 +40,7 @@ final class ListChannelInteractor {
     init() {
         let networkService = NetworkService.shared
         let persistenceService = PersistenceService.shared
-        let worker = ListChannelWorker(
+        let worker = ListChannelsWorker(
             networkService: networkService,
             persistenceService: persistenceService
         )
@@ -65,7 +65,7 @@ final class ListChannelInteractor {
                 return
             }
 
-            let response = ListChannel.LoadData.Response(
+            let response = ListChannels.LoadData.Response(
                 newEpisodeData: newEpisodeData,
                 channelData: channelData,
                 categoryData: categoryData
@@ -91,7 +91,7 @@ final class ListChannelInteractor {
                 return
             }
 
-            let response = ListChannel.LoadData.Response(
+            let response = ListChannels.LoadData.Response(
                 newEpisodeData: newEpisodeData,
                 channelData: channelData,
                 categoryData: categoryData
@@ -103,22 +103,22 @@ final class ListChannelInteractor {
     }
 }
 
-// MARK: - ListChannelBusinessLogic Extension
-extension ListChannelInteractor: ListChannelBusinessLogic {
-    func loadData(request: ListChannel.LoadData.Request) {
+// MARK: - ListChannelsBusinessLogic Extension
+extension ListChannelsInteractor: ListChannelsBusinessLogic {
+    func loadData(request: ListChannels.LoadData.Request) {
         loadLocalData()
     }
 
-    func refreshData(request: ListChannel.RefreshData.Request) {
+    func refreshData(request: ListChannels.RefreshData.Request) {
         loadCloudData()
     }
 }
 
-// MARK: - ListChannelDataStore Extension
-extension ListChannelInteractor: ListChannelDataStore {}
+// MARK: - ListChannelsDataStore Extension
+extension ListChannelsInteractor: ListChannelsDataStore {}
 
 // MARK: - Load Local Respective Data Helpers
-private extension ListChannelInteractor {
+private extension ListChannelsInteractor {
     func loadLocalNewEpisodes() {
         localDataDispatchGroup.enter()
 
@@ -181,7 +181,7 @@ private extension ListChannelInteractor {
 }
 
 // MARK: - Load Cloud Data Related Helpers
-private extension ListChannelInteractor {
+private extension ListChannelsInteractor {
     func loadCloudNewEpisodes() {
         cloudDataDispatchGroup.enter()
 

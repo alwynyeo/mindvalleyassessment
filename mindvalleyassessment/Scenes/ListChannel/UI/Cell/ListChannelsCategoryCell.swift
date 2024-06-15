@@ -1,5 +1,5 @@
 //
-//  ListChannelCategoryCell.swift
+//  ListChannelsCategoryCell.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/10/24.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class ListChannelCategoryCell: UICollectionViewCell {
+final class ListChannelsCategoryCell: UICollectionViewCell {
     
     // MARK: - Declarations
 
-    private var item: ListChannel.Section.Item? {
+    private var item: ListChannels.Section.Item? {
         didSet { configureItem() }
     }
 
-    static let cellId = "ListChannelCategoryCell"
+    static let cellId = "ListChannelsCategoryCell"
 
     private let titleLabel = UILabel()
 
@@ -46,7 +46,7 @@ final class ListChannelCategoryCell: UICollectionViewCell {
 
     // MARK: - Helpers
 
-    func configure(item: ListChannel.Section.Item) {
+    func configure(item: ListChannels.Section.Item) {
         self.item = item
     }
 
@@ -68,7 +68,7 @@ final class ListChannelCategoryCell: UICollectionViewCell {
 }
 
 // MARK: - Programmatic UI Configuration
-private extension ListChannelCategoryCell {
+private extension ListChannelsCategoryCell {
     func configureUI() {
         contentView.backgroundColor = Color.grayBackground
         contentView.layer.cornerRadius = 32

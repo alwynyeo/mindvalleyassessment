@@ -1,5 +1,5 @@
 //
-//  ListChannelIconTextHeaderView.swift
+//  ListChannelsIconTextHeaderView.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/8/24.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class ListChannelIconTextHeaderView: UICollectionReusableView {
+final class ListChannelsIconTextHeaderView: UICollectionReusableView {
 
     // MARK: - Declarations
 
-    private var section: ListChannel.Section? {
+    private var section: ListChannels.Section? {
         didSet { configureSection() }
     }
 
-    static let headerId = "ListChannelIconTextHeaderView"
+    static let headerId = "ListChannelsIconTextHeaderView"
 
     private let channelIconImageView = UIImageView()
     private let titleLabel = UILabel()
@@ -39,7 +39,7 @@ final class ListChannelIconTextHeaderView: UICollectionReusableView {
 
     // MARK: - Helpers
 
-    func configure(section: ListChannel.Section) {
+    func configure(section: ListChannels.Section) {
         self.section = section
     }
 
@@ -58,7 +58,7 @@ final class ListChannelIconTextHeaderView: UICollectionReusableView {
 }
 
 // MARK: - Programmatic UI Configuration
-private extension ListChannelIconTextHeaderView {
+private extension ListChannelsIconTextHeaderView {
     func configureUI() {
         titleLabel.textColor = Color.whiteText
         titleLabel.font = Font.iconTextSectionTitle

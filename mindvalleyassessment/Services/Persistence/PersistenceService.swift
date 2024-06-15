@@ -102,8 +102,8 @@ final class PersistenceService {
     }
 }
 
-// MARK: - ListChannelServiceProtocol
-extension PersistenceService: ListChannelServiceProtocol {
+// MARK: - ListChannelsServiceProtocol
+extension PersistenceService: ListChannelsServiceProtocol {
     func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
         let newEpisode = constructNewEpisode()
         completion(NewEpisodeResultType.success(newEpisode))

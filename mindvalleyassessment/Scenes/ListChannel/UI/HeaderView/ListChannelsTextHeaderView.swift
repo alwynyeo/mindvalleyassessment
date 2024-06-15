@@ -1,5 +1,5 @@
 //
-//  ListChannelTextHeaderView.swift
+//  ListChannelsTextHeaderView.swift
 //  mindvalleyassessment
 //
 //  Created by Alwyn Yeo on 6/8/24.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class ListChannelTextHeaderView: UICollectionReusableView {
+final class ListChannelsTextHeaderView: UICollectionReusableView {
 
     // MARK: - Declarations
 
-    private var section: ListChannel.Section? {
+    private var section: ListChannels.Section? {
         didSet { configureSection() }
     }
 
-    static let headerId = "ListChannelTextHeaderView"
+    static let headerId = "ListChannelsTextHeaderView"
 
     private let titleLabel = UILabel()
     private let separatorView = UIView()
@@ -35,7 +35,7 @@ final class ListChannelTextHeaderView: UICollectionReusableView {
 
     // MARK: - Helpers
 
-    func configure(section: ListChannel.Section, isSeparatorHidden: Bool = false) {
+    func configure(section: ListChannels.Section, isSeparatorHidden: Bool = false) {
         self.section = section
         separatorView.isHidden = isSeparatorHidden
     }
@@ -49,7 +49,7 @@ final class ListChannelTextHeaderView: UICollectionReusableView {
 }
 
 // MARK: - Programmatic UI Configuration
-private extension ListChannelTextHeaderView {
+private extension ListChannelsTextHeaderView {
     func configureUI() {
         titleLabel.textColor = Color.grayText
         titleLabel.font = Font.textSectionTitle
