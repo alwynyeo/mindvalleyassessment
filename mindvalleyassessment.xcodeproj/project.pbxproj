@@ -92,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4141F452C1F3E9D00B1E917 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A42318BE2C1B92800030A354 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		A42318C02C1B93070030A354 /* Font+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Constant.swift"; sourceTree = "<group>"; };
 		A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFontDescriptorAttributeName+Extension.swift"; sourceTree = "<group>"; };
@@ -488,6 +489,7 @@
 				A4E683512C1351A200809BDA /* Assets.xcassets */,
 				A4E683532C1351A200809BDA /* LaunchScreen.storyboard */,
 				A4E683562C1351A200809BDA /* Info.plist */,
+				A4141F452C1F3E9D00B1E917 /* README.md */,
 			);
 			path = mindvalleyassessment;
 			sourceTree = "<group>";
