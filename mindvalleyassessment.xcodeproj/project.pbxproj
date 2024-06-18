@@ -56,6 +56,7 @@
 		A484C8F82C1D8D6B008330C1 /* ListChannelsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484C8EC2C1D8D6B008330C1 /* ListChannelsRouter.swift */; };
 		A484C8F92C1D8D6B008330C1 /* ListChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484C8ED2C1D8D6B008330C1 /* ListChannelsViewController.swift */; };
 		A484C8FA2C1D8D6B008330C1 /* ListChannelsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484C8EE2C1D8D6B008330C1 /* ListChannelsWorker.swift */; };
+		A49618722C21B362004D6CF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A49618712C21B362004D6CF8 /* Assets.xcassets */; };
 		A49C73A22C17433200D4DB6A /* Error+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A12C17433200D4DB6A /* Error+Enum.swift */; };
 		A49C73A72C17481900D4DB6A /* Color+Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73A62C17481900D4DB6A /* Color+Constant.swift */; };
 		A49C73AC2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */; };
@@ -64,7 +65,6 @@
 		A4E683462C13519F00809BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683452C13519F00809BDA /* AppDelegate.swift */; };
 		A4E683482C13519F00809BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683472C13519F00809BDA /* SceneDelegate.swift */; };
 		A4E683502C13519F00809BDA /* mindvalleyassessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4E6834E2C13519F00809BDA /* mindvalleyassessment.xcdatamodeld */; };
-		A4E683522C1351A200809BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4E683512C1351A200809BDA /* Assets.xcassets */; };
 		A4E683552C1351A200809BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A4E683542C1351A200809BDA /* Base */; };
 		A4E6836A2C1351A300809BDA /* mindvalleyassessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E683692C1351A300809BDA /* mindvalleyassessmentUITests.swift */; };
 		A4E6836C2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E6836B2C1351A300809BDA /* mindvalleyassessmentUITestsLaunchTests.swift */; };
@@ -141,6 +141,7 @@
 		A484C8ED2C1D8D6B008330C1 /* ListChannelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChannelsViewController.swift; sourceTree = "<group>"; };
 		A484C8EE2C1D8D6B008330C1 /* ListChannelsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChannelsWorker.swift; sourceTree = "<group>"; };
 		A496186D2C21AF85004D6CF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A49618712C21B362004D6CF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A49C73A12C17433200D4DB6A /* Error+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Enum.swift"; sourceTree = "<group>"; };
 		A49C73A62C17481900D4DB6A /* Color+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Constant.swift"; sourceTree = "<group>"; };
 		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Enum.swift"; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 		A4E683452C13519F00809BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4E683472C13519F00809BDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A4E6834F2C13519F00809BDA /* mindvalleyassessment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mindvalleyassessment.xcdatamodel; sourceTree = "<group>"; };
-		A4E683512C1351A200809BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4E683542C1351A200809BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4E683562C1351A200809BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E6835B2C1351A300809BDA /* mindvalleyassessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindvalleyassessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,8 +514,8 @@
 			children = (
 				A47D4DD32C1B8CCA0086BC93 /* Roboto-Fonts */,
 				A42318C52C1B93BF0030A354 /* Resources.swift */,
-				A4E683512C1351A200809BDA /* Assets.xcassets */,
 				A4E683562C1351A200809BDA /* Info.plist */,
+				A49618712C21B362004D6CF8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -673,8 +673,8 @@
 				A47D4DE02C1B8CCA0086BC93 /* Roboto-ThinItalic.ttf in Resources */,
 				A47D4DDF2C1B8CCA0086BC93 /* Roboto-Thin.ttf in Resources */,
 				A47D4DD42C1B8CCA0086BC93 /* LICENSE.txt in Resources */,
-				A4E683522C1351A200809BDA /* Assets.xcassets in Resources */,
 				A47D4DDB2C1B8CCA0086BC93 /* Roboto-LightItalic.ttf in Resources */,
+				A49618722C21B362004D6CF8 /* Assets.xcassets in Resources */,
 				A47D4DD72C1B8CCA0086BC93 /* Roboto-Bold.ttf in Resources */,
 				A47D4DDD2C1B8CCA0086BC93 /* Roboto-MediumItalic.ttf in Resources */,
 				A47D4DD62C1B8CCA0086BC93 /* Roboto-BlackItalic.ttf in Resources */,
