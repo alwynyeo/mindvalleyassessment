@@ -92,7 +92,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A4141F452C1F3E9D00B1E917 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A42318BE2C1B92800030A354 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		A42318C02C1B93070030A354 /* Font+Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Constant.swift"; sourceTree = "<group>"; };
 		A42318C32C1B93770030A354 /* UIFontDescriptorAttributeName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFontDescriptorAttributeName+Extension.swift"; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		A484C8EC2C1D8D6B008330C1 /* ListChannelsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChannelsRouter.swift; sourceTree = "<group>"; };
 		A484C8ED2C1D8D6B008330C1 /* ListChannelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChannelsViewController.swift; sourceTree = "<group>"; };
 		A484C8EE2C1D8D6B008330C1 /* ListChannelsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListChannelsWorker.swift; sourceTree = "<group>"; };
+		A496186D2C21AF85004D6CF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A49C73A12C17433200D4DB6A /* Error+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Enum.swift"; sourceTree = "<group>"; };
 		A49C73A62C17481900D4DB6A /* Color+Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Constant.swift"; sourceTree = "<group>"; };
 		A49C73AB2C174B3300D4DB6A /* NetworkStatusCode+Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStatusCode+Enum.swift"; sourceTree = "<group>"; };
@@ -459,6 +459,7 @@
 		A4E683392C13519F00809BDA = {
 			isa = PBXGroup;
 			children = (
+				A496186D2C21AF85004D6CF8 /* README.md */,
 				A4E683442C13519F00809BDA /* mindvalleyassessment */,
 				A4E6835E2C1351A300809BDA /* mindvalleyassessmentTests */,
 				A4E683682C1351A300809BDA /* mindvalleyassessmentUITests */,
@@ -487,7 +488,6 @@
 				A4E683782C13557600809BDA /* Resources */,
 				A41C65C72C21ACF000297CD0 /* System */,
 				A4E683532C1351A200809BDA /* LaunchScreen.storyboard */,
-				A4141F452C1F3E9D00B1E917 /* README.md */,
 			);
 			path = mindvalleyassessment;
 			sourceTree = "<group>";
