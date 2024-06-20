@@ -8,8 +8,8 @@
 
 import Foundation
 
-// MARK: - ListChannelsServiceProtocol Protocol
-protocol ListChannelsServiceProtocol {
+// MARK: - ListChannelsServiceLogic Protocol
+protocol ListChannelsServiceLogic {
     func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
     func getChannel(completion: @escaping (ChannelResultType) -> Void)
     func getCategory(completion: @escaping (CategoryResultType) -> Void)
@@ -30,15 +30,15 @@ protocol ListChannelsWorkerLogic {
 final class ListChannelsWorker {
     // MARK: - Declarations
 
-    private let networkService: ListChannelsServiceProtocol
+    private let networkService: ListChannelsServiceLogic
 
-    private let persistenceService: ListChannelsServiceProtocol
+    private let persistenceService: ListChannelsServiceLogic
 
     // MARK: - Object Lifecycle
 
     init(
-        networkService: ListChannelsServiceProtocol,
-        persistenceService: ListChannelsServiceProtocol
+        networkService: ListChannelsServiceLogic,
+        persistenceService: ListChannelsServiceLogic
     ) {
         self.networkService = networkService
         self.persistenceService = persistenceService
@@ -67,7 +67,7 @@ final class ListChannelsWorker {
     // MARK: - Helpers
 }
 
-// MARK: - ListChannelsWorkerProtocol
+// MARK: - ListChannelsWorkerLogic
 extension ListChannelsWorker: ListChannelsWorkerLogic {
     // MARK: Get Local Data Helper
 

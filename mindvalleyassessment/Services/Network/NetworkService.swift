@@ -43,7 +43,7 @@ final class NetworkService {
 }
 
 // MARK: - ListChannelsServiceProtocol
-extension NetworkService: ListChannelsServiceProtocol {
+extension NetworkService: ListChannelsServiceLogic {
     func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
         urlComponents.path = "/raw/z5AExTtw"
 

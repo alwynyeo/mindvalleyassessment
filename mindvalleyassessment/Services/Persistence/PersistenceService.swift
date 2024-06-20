@@ -103,7 +103,7 @@ final class PersistenceService {
 }
 
 // MARK: - ListChannelsServiceProtocol
-extension PersistenceService: ListChannelsServiceProtocol {
+extension PersistenceService: ListChannelsServiceLogic {
     func getNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
         let newEpisode = constructNewEpisode()
         completion(NewEpisodeResultType.success(newEpisode))
