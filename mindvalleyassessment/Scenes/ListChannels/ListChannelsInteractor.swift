@@ -23,7 +23,7 @@ final class ListChannelsInteractor {
 
     var presenter: ListChannelsPresentationLogic?
 
-    var worker: ListChannelsWorkerProtocol?
+    var worker: ListChannelsWorkerLogic?
 
     private var newEpisodeData: NewEpisode?
 

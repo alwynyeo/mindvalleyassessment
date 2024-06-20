@@ -15,7 +15,8 @@ protocol ListChannelsServiceProtocol {
     func getCategory(completion: @escaping (CategoryResultType) -> Void)
 }
 
-protocol ListChannelsWorkerProtocol {
+// MARK: - ListChannelsWorkerLogic Protocol
+protocol ListChannelsWorkerLogic {
     func getLocalNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void)
     func getLocalChannel(completion: @escaping (ChannelResultType) -> Void)
     func getLocalCategory(completion: @escaping (CategoryResultType) -> Void)
@@ -67,7 +68,7 @@ final class ListChannelsWorker {
 }
 
 // MARK: - ListChannelsWorkerProtocol
-extension ListChannelsWorker: ListChannelsWorkerProtocol {
+extension ListChannelsWorker: ListChannelsWorkerLogic {
     // MARK: Get Local Data Helper
 
     func getLocalNewEpisode(completion: @escaping (NewEpisodeResultType) -> Void) {
