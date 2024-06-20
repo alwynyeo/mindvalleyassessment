@@ -73,6 +73,13 @@ private extension ListChannelsIconTextHeaderView {
     
     func configureSeparatorView() {
         separatorView.backgroundColor = Color.separator
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            separatorView.heightAnchor.constraint(equalToConstant: 1)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
     
     func configureTitleLabel() {
