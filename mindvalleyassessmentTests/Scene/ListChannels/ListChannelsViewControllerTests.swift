@@ -67,7 +67,7 @@ final class ListChannelsViewControllerTests: XCTestCase {
         sut.interactor = listChannelsBusinessLogicSpy
 
         // When
-        let request = ListChannel.RefreshData.Request()
+        let request = ListChannels.RefreshData.Request()
         sut.interactor?.refreshData(request: request)
 
         // Then
@@ -81,7 +81,7 @@ final class ListChannelsViewControllerTests: XCTestCase {
 
         // When
         let sections = makeSections()
-        let viewModel = ListChannel.LoadData.ViewModel(sections: sections)
+        let viewModel = ListChannels.LoadData.ViewModel(sections: sections)
 
         sut.displayLoadedData(viewModel: viewModel)
 
@@ -95,7 +95,7 @@ final class ListChannelsViewControllerTests: XCTestCase {
         let sections = makeSections()
 
         // When
-        let viewModel = ListChannel.LoadData.ViewModel(sections: sections)
+        let viewModel = ListChannels.LoadData.ViewModel(sections: sections)
 
         sut.displayLoadedData(viewModel: viewModel)
 
@@ -114,7 +114,7 @@ final class ListChannelsViewControllerTests: XCTestCase {
         let sections = makeSections()
 
         // When
-        let viewModel = ListChannel.LoadData.ViewModel(sections: sections)
+        let viewModel = ListChannels.LoadData.ViewModel(sections: sections)
 
         sut.displayLoadedData(viewModel: viewModel)
 
@@ -137,7 +137,7 @@ final class ListChannelsViewControllerTests: XCTestCase {
         let sections = makeSections()
 
         // When
-        let viewModel = ListChannel.LoadData.ViewModel(sections: sections)
+        let viewModel = ListChannels.LoadData.ViewModel(sections: sections)
 
         sut.displayLoadedData(viewModel: viewModel)
 
@@ -160,29 +160,29 @@ final class ListChannelsViewControllerTests: XCTestCase {
 
 // MARK: - Helpers
 private extension ListChannelsViewControllerTests {
-    func makeSections() -> [ListChannel.Section] {
+    func makeSections() -> [ListChannels.Section] {
         let testDisplayedSectionAItems = [
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 1"),
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 2", subTitle: "SubTitle 1"),
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 3"),
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 4", subTitle: "SubTitle 2"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 1"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 2", subTitle: "SubTitle 1"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 3"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 4", subTitle: "SubTitle 2"),
         ]
 
         let testDisplayedSectionBItems = [
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 1"),
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 2", subTitle: "SubTitle 1"),
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 3"),
-            ListChannel.Section.Item(imageUrl: URL(string: ""), title: "Item 4", subTitle: "SubTitle 1"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 1"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 2", subTitle: "SubTitle 1"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 3"),
+            ListChannels.Section.Item(imageUrl: URL(string: ""), title: "Item 4", subTitle: "SubTitle 1"),
         ]
 
         let testDisplayedSections = [
-            ListChannel.Section(
+            ListChannels.Section(
                 imageUrl: URL(string: ""),
                 title: "Section 1",
                 subTitle: "Section subtitle 1",
                 items: testDisplayedSectionAItems
             ),
-            ListChannel.Section(
+            ListChannels.Section(
                 imageUrl: URL(string: ""),
                 title: "Section 2",
                 subTitle: "Section subtitle 2",
@@ -197,7 +197,7 @@ private extension ListChannelsViewControllerTests {
 
 // MARK: - Classes
 private extension ListChannelsViewControllerTests {
-    class ListChannelsBusinessLogicSpy: ListChannelBusinessLogic {
+    class ListChannelsBusinessLogicSpy: ListChannelsBusinessLogic {
         // MARK: Method call expectations
 
         var fetchLocalChannelsCalled = false
@@ -206,11 +206,11 @@ private extension ListChannelsViewControllerTests {
 
         // MARK: Spied methods
 
-        func loadData(request: mindvalleyassessment.ListChannel.LoadData.Request) {
+        func loadData(request: mindvalleyassessment.ListChannels.LoadData.Request) {
             fetchLocalChannelsCalled = true
         }
 
-        func refreshData(request: mindvalleyassessment.ListChannel.RefreshData.Request) {
+        func refreshData(request: mindvalleyassessment.ListChannels.RefreshData.Request) {
             fetchCloudChannelsCalled = true
         }
     }
